@@ -1,5 +1,15 @@
 # Log
 
+## 2026-10-31 Derive the solution before comparing approaches
+
+Changed: D:derive-before-compare added, D:challenge-the-chain added, F:decisions-anchor added, D:work-review changed
+
+Why: Comparing approaches first, with the records only a reference and revised after the choice, puts the choice before its derivation; the work now derives the solution from the governing derivations up to the articles, compares approaches only for a trade-off or a revision, and challenges the derivations that constrain the solution most, since reasoning within the decisions as they stand considers only what they leave open, which is assumed until works are reviewed for it.
+
+Re-examined: D:follow-derivations holds beside D:derive-before-compare; D:work-review now also finds a solution whose chain was not challenged; no record rests on D:work-review
+
+Ruling: the owner's ruling of 2026-10-31 to write the derivation-first process into the work extension
+
 ## 2026-10-31 Ground the tree layout and standalone rules in articles
 
 Changed: D:tree-layout changed, D:rules-standalone changed
