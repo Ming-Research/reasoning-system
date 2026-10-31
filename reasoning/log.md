@@ -1,5 +1,15 @@
 # Log
 
+## 2026-10-31 Check that every chain reaches the constitution
+
+Changed: D:grounded-chains added, D:tree-layout changed, D:rules-standalone changed
+
+Why: Every decision follows from the axioms and a fact enters only when a derivation rests on it, so the check now finds a derivation that reaches no article and a fact no derivation cites; it found D:tree-layout and D:rules-standalone resting on facts alone, which are marked Open with the article proposed for each until the owner gives it.
+
+Re-examined: no record rests on D:tree-layout, D:rules-standalone or D:grounded-chains
+
+Ruling: the owner's ruling of 2026-10-31 to add the chain checks before converting wf-agents' design tree
+
 ## 2026-10-31 Split the rules by role to save context
 
 Changed: F:context-cost added, D:rules-by-role changed

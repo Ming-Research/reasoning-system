@@ -35,8 +35,9 @@ The records are plain text in the language and character set the project sets, i
 field is one line, with a blank line between fields; list items follow straight after their field.
 
 **The check.** `check.py` in the system's repository checks the format, that every reference resolves and is listed in
-its derivation's `Rests on`, that the derivations form no cycle and that no removed id is used again, and lists what is
-open or assumed:
+its derivation's `Rests on`, that the derivations form no cycle, that no removed id is used again, that every fact is
+cited by a derivation, and that every derivation not marked `Open` reaches an article through what it rests on. It
+lists what is open or assumed, and the derivations resting on each open one:
 
 ```
 python3 -B <system>/check.py --root reasoning [--ascii]
@@ -88,8 +89,8 @@ Rejected:
 - <approach>: rejected because <how it differs from the choice, not the choice turned around>
 ```
 
-`because` is required; `instead of` is given when one approach stands against the choice. `Open` and `Rejected` are
-given when there is something to give. A derivation holds no dates, history or progress; how it came to be is in the
+`because` is required; `instead of` is given when one approach stands against the choice. `Rests on` is required,
+except for an `Open` derivation that cites nothing. `Open` and `Rejected` are given when there is something to give. A derivation holds no dates, history or progress; how it came to be is in the
 log.
 
 **A log entry.**

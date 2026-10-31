@@ -17,8 +17,14 @@ Decision tree-layout: Facts and derivations are each kept as a tree by subject, 
 
 Rests on: F:records-grow
 
+Open: which article this serves, as nothing it rests on reaches one; proposed to the owner: the article on who reads the records, as the layout is for the agents that find and keep the records.
+
 Rejected:
 - One flat directory of files for each kind: rejected because it grows with the whole project (F:records-grow).
+
+Decision grounded-chains: Every derivation not marked Open reaches an article of the constitution through what it rests on, and every fact is cited by a derivation, instead of a derivation standing on facts alone or a fact standing on its own, because every decision follows from the axioms, and a fact enters only when a derivation rests on it.
+
+Rests on: C:coherence, D:open-derivations, D:facts-when-cited
 
 Decision facts-when-cited: A fact enters the records only when a derivation rests on it, and only as given, instead of the records keeping how it was established and whether it still holds, because where a fact comes from and whether it holds are the project's.
 

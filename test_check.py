@@ -135,6 +135,25 @@ class FormTests(Fixture):
                      "Jobs wait in a queue.")
         self.assert_fails("D:queue gives no 'because'")
 
+    def test_a_fact_no_derivation_cites(self):
+        self.write("reasoning/facts/machine.md", FACTS + "\nFact disk: The disk is slow.\n")
+        self.assert_fails("F:disk is cited by no derivation")
+
+    def test_a_derivation_that_reaches_no_article(self):
+        self.replace("reasoning/derivations/jobs.md", "Rests on: C:aim, F:speed", "Rests on: F:speed")
+        self.replace("reasoning/derivations/jobs.md", "Rests on: C:rule, D:serial", "Rests on: D:serial")
+        self.assert_fails("D:serial reaches no article of the constitution")
+
+    def test_an_open_derivation_may_cite_nothing_and_what_rests_on_it_is_listed(self):
+        self.write("reasoning/derivations/order.md",
+                   "Decision order: Jobs keep their order, because of an aim not yet found.\n\n"
+                   "Open: the article it serves; asked\n\n"
+                   "Decision report: The report lists jobs in order, because they keep their order.\n\n"
+                   "Rests on: D:order\n")
+        result = self.assert_passes()
+        self.assertIn("open: 1  assumed: 0  on-open: 1", result.stdout)
+        self.assertIn("  resting on D:order: D:report", result.stdout)
+
     def test_a_derivation_without_rests_on(self):
         self.replace("reasoning/derivations/jobs.md", "\nRests on: C:rule, D:serial\n", "")
         self.assert_fails("D:queue has no 'Rests on'")
@@ -180,7 +199,8 @@ class FormTests(Fixture):
 
     def test_subjects_nest_under_their_node_file(self):
         self.write("reasoning/facts/machine/disk.md", "Fact disk: The disk is slow.\n")
-        self.write("reasoning/derivations/jobs/order.md", "Decision order: Jobs keep their order, because of D:queue.\n\nRests on: D:queue\n")
+        self.write("reasoning/derivations/jobs/order.md",
+                   "Decision order: Jobs keep their order, because of D:queue and the slow disk.\n\nRests on: D:queue, F:disk\n")
         self.assert_passes()
 
     def test_a_directory_without_its_node_file(self):

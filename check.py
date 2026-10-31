@@ -69,6 +69,7 @@ class Records:
         self.errors = []
         self.records = {}  # ref -> Record
         self.entries = []
+        self.resting = None  # derivation -> the derivations resting on it directly
 
     def err(self, where, message):
         self.errors.append(f"{where}: {message}")
@@ -245,7 +246,11 @@ class Records:
         if record.fields.get("Rejected") is not None and record.rejected == 0:
             self.err(f"{record.path}:{record.fields['Rejected'][0]}", "a 'Rejected:' list with no item")
         if "Rests on" not in record.fields:
-            self.err(where, f"{record.ref} has no 'Rests on'")
+            if "Open" not in record.fields:
+                self.err(where, f"{record.ref} has no 'Rests on'; only an Open derivation may cite nothing")
+            for number, line in record.numbered():
+                for match in REF.finditer(line):
+                    self.err(f"{record.path}:{number}", f"{record.ref} cites {match[0]}, which its Rests on does not list")
             return
         rests_line, value = record.fields["Rests on"]
         premises = [item.strip() for item in value.split(",")]
@@ -330,13 +335,25 @@ class Records:
                     self.err(f"{record.path}:{record.start}",
                              f"{ref} was removed in the log entry '{entry.heading[3:]}', and an id is never used again")
         self.check_cycles()
+        self.check_facts_cited()
+        self.check_grounded()
+
+    def premises(self, ref):
+        """What a derivation's Rests on lists that resolves."""
+        record = self.records[ref]
+        if "Rests on" not in record.fields:
+            return []
+        items = (item.strip() for item in record.fields["Rests on"][1].split(","))
+        return sorted({item for item in items if item in self.records})
+
+    def derivations(self):
+        return sorted(ref for ref, record in self.records.items() if record.kind == "D")
+
+    def is_open(self, ref):
+        return "Open" in self.records[ref].fields
 
     def check_cycles(self):
-        edges = {}
-        for ref, record in self.records.items():
-            if record.kind == "D" and "Rests on" in record.fields:
-                premises = (item.strip() for item in record.fields["Rests on"][1].split(","))
-                edges[ref] = sorted(p for p in premises if p.startswith("D:") and p in self.records)
+        edges = {ref: [p for p in self.premises(ref) if p.startswith("D:")] for ref in self.derivations()}
         state = {}
         for root in sorted(edges):
             if root in state:
@@ -359,6 +376,54 @@ class Records:
                     state[following] = "open"
                     path.append(following)
                     stack.append(iter(edges[following]))
+
+    def check_facts_cited(self):
+        cited = {premise for ref in self.derivations() for premise in self.premises(ref)}
+        for ref, record in sorted(self.records.items()):
+            if record.kind == "F" and ref not in cited:
+                self.err(f"{record.path}:{record.start}",
+                         f"{ref} is cited by no derivation; a fact enters only when a derivation rests on it")
+
+    def reaches(self, ref, found, seen=None):
+        """Whether a derivation reaches a record that found() accepts through what it rests on."""
+        seen = set() if seen is None else seen
+        stack = [ref]
+        while stack:
+            current = stack.pop()
+            for premise in self.premises(current):
+                if found(premise):
+                    return True
+                if premise.startswith("D:") and premise not in seen:
+                    seen.add(premise)
+                    stack.append(premise)
+        return False
+
+    def check_grounded(self):
+        for ref in self.derivations():
+            if self.is_open(ref):
+                continue
+            if self.reaches(ref, lambda p: p.startswith("C:") or (p.startswith("D:") and self.is_open(p))):
+                continue
+            record = self.records[ref]
+            self.err(f"{record.path}:{record.start}",
+                     f"{ref} reaches no article of the constitution through what it rests on, and no Open derivation")
+
+    def on_open(self, ref):
+        """The derivations that rest on an Open derivation, directly or through others."""
+        if self.resting is None:
+            self.resting = {}
+            for other in self.derivations():
+                for premise in self.premises(other):
+                    if premise.startswith("D:"):
+                        self.resting.setdefault(premise, set()).add(other)
+        found = set()
+        stack = [ref]
+        while stack:
+            for other in self.resting.get(stack.pop(), ()):
+                if other not in found and other != ref:
+                    found.add(other)
+                    stack.append(other)
+        return sorted(found)
 
     # ---- against a base --------------------------------------------------------
 
@@ -403,6 +468,7 @@ class Records:
             "rejected": sum(r.rejected for r in records),
             "open": sum(r.kind == "D" and "Open" in r.fields for r in records),
             "assumed": sum(r.kind == "F" and "Assumed" in r.fields for r in records),
+            "on-open": len({other for ref in self.derivations() if self.is_open(ref) for other in self.on_open(ref)}),
         }
 
     def report(self, base_metrics):
@@ -417,6 +483,10 @@ class Records:
             for name, label in (("Open", "open"), ("Assumed", "assumed")):
                 if name in record.fields:
                     print(f"{label} {record.ref} ({record.path}:{record.start}): {record.fields[name][1]}")
+            if record.kind == "D" and self.is_open(record.ref):
+                resting = self.on_open(record.ref)
+                if resting:
+                    print(f"  resting on {record.ref}: {', '.join(resting)}")
 
 
 def worktree(root):
