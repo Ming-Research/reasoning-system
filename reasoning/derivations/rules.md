@@ -1,8 +1,6 @@
-Decision rules-standalone: The rules say what to do and cite none of this system's own derivations, instead of each rule citing the derivation it comes from, because the rules are read by the agents of every project keeping its records with this system, to whom this system's derivations are not their own and would be taken for theirs.
+Decision rules-standalone: The rules say what to do and cite none of this system's own derivations, instead of each rule citing the derivation it comes from, because the rules are read by the agents of every project keeping its records with this system, to whom this system's derivations are not their own and would be taken for theirs, so that their records would cite premises that are not theirs.
 
-Rests on: F:rules-read-by-projects
-
-Open: which article this serves, as nothing it rests on reaches one; proposed to the owner: the article on coherence, as another project's records would cite premises that are not theirs.
+Rests on: C:coherence, F:rules-read-by-projects
 
 Rejected:
 - Each rule citing the derivation it comes from, checked both ways: rejected because the agents reading the rules keep their own project's derivations, and this system's would mislead them (F:rules-read-by-projects).

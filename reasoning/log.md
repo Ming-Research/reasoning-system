@@ -1,5 +1,15 @@
 # Log
 
+## 2026-10-31 Ground the tree layout and standalone rules in articles
+
+Changed: D:tree-layout changed, D:rules-standalone changed
+
+Why: The owner gave the articles both were open on: the tree layout serves the agents that find and keep the records (C:agents-read), and rules citing no derivation of this system keep another project's records from citing premises that are not theirs (C:coherence).
+
+Re-examined: no record rests on D:tree-layout or D:rules-standalone
+
+Ruling: the owner's ruling of 2026-10-31 taking both proposed articles
+
 ## 2026-10-31 Check that every chain reaches the constitution
 
 Changed: D:grounded-chains added, D:tree-layout changed, D:rules-standalone changed

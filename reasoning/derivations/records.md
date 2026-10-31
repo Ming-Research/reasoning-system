@@ -13,11 +13,9 @@ Rests on: C:agents-read
 Rejected:
 - Writing each record so that a person who has not seen where it came from can read it alone: rejected because no person reads the records without an agent (C:agents-read).
 
-Decision tree-layout: Facts and derivations are each kept as a tree by subject, a node file <subject>.md with the subjects under it in <subject>/, instead of one flat directory of files, because the records grow to hundreds, and a tree keeps each directory to the subjects at one level.
+Decision tree-layout: Facts and derivations are each kept as a tree by subject, a node file <subject>.md with the subjects under it in <subject>/, instead of one flat directory of files, because the agents that find and keep the records read them a directory at a time, the records grow to hundreds, and a tree keeps each directory to the subjects at one level.
 
-Rests on: F:records-grow
-
-Open: which article this serves, as nothing it rests on reaches one; proposed to the owner: the article on who reads the records, as the layout is for the agents that find and keep the records.
+Rests on: C:agents-read, F:records-grow
 
 Rejected:
 - One flat directory of files for each kind: rejected because it grows with the whole project (F:records-grow).
