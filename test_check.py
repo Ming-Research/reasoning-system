@@ -154,6 +154,11 @@ class FormTests(Fixture):
         self.assertIn("open: 1  assumed: 0  on-open: 1", result.stdout)
         self.assertIn("  resting on D:order: D:report", result.stdout)
 
+    def test_a_reason_given_as_a_purpose(self):
+        self.replace("reasoning/derivations/jobs.md", "Jobs wait in a queue, because they run one at a time.",
+                     "Jobs wait in a queue, so that they run one at a time.")
+        self.assert_passes()
+
     def test_a_derivation_without_rests_on(self):
         self.replace("reasoning/derivations/jobs.md", "\nRests on: C:rule, D:serial\n", "")
         self.assert_fails("D:queue has no 'Rests on'")

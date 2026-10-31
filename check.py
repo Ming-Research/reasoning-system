@@ -241,8 +241,8 @@ class Records:
 
     def check_derivation(self, record):
         where = f"{record.path}:{record.start}"
-        if " because " not in record.lines[0] and "Open" not in record.fields:
-            self.err(where, f"{record.ref} gives no 'because'; only an Open derivation may give no reason")
+        if not any(mark in record.lines[0] for mark in (" because ", " so that ")) and "Open" not in record.fields:
+            self.err(where, f"{record.ref} gives no 'because' or 'so that'; only an Open derivation may give no reason")
         if record.fields.get("Rejected") is not None and record.rejected == 0:
             self.err(f"{record.path}:{record.fields['Rejected'][0]}", "a 'Rejected:' list with no item")
         if "Rests on" not in record.fields:
