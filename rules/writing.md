@@ -89,8 +89,8 @@ Rejected:
 - <approach>: rejected because <how it differs from the choice, not the choice turned around>
 ```
 
-`because` is required; `instead of` is given when one approach stands against the choice. `Rests on` is required,
-except for an `Open` derivation that cites nothing. `Open` and `Rejected` are given when there is something to give. A derivation holds no dates, history or progress; how it came to be is in the
+`because` and `Rests on` are required, except in an `Open` derivation whose reason or premises are wholly missing;
+`instead of` is given when one approach stands against the choice. `Open` and `Rejected` are given when there is something to give. A derivation holds no dates, history or progress; how it came to be is in the
 log.
 
 **A log entry.**

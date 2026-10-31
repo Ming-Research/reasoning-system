@@ -146,8 +146,8 @@ class FormTests(Fixture):
 
     def test_an_open_derivation_may_cite_nothing_and_what_rests_on_it_is_listed(self):
         self.write("reasoning/derivations/order.md",
-                   "Decision order: Jobs keep their order, because of an aim not yet found.\n\n"
-                   "Open: the article it serves; asked\n\n"
+                   "Decision order: Jobs keep their order.\n\n"
+                   "Open: the reason, which is wholly missing; asked\n\n"
                    "Decision report: The report lists jobs in order, because they keep their order.\n\n"
                    "Rests on: D:order\n")
         result = self.assert_passes()
