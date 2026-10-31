@@ -5,88 +5,103 @@ For agents that derive decisions and change the records. Read `reading.md` first
 ## 1. Deriving
 
 - Derive from the constitution, the facts and earlier derivations, by first principles. Name the premises, and conclude
-  only what they give. Say which kind of ground a reason is: a derivation; an observation under its conditions; or a
-  principle, which shows a choice fits but not that it is the only one.
-- Where the premises leave several workable approaches, the trade-off is put to the owner as a card (section 3). The
-  owner's ruling keeps one approach and rejects the others, with the reasoning; that reasoning is what links the new
-  derivation to what it rests on.
+  only what they give.
+- Where the premises leave several workable approaches, the trade-off is put to the owner. The owner's ruling keeps one
+  approach and rejects the others, with the reasoning; that reasoning is what links the new derivation to what it rests
+  on.
 - An earlier derivation is a premise, not a wall. When a question is better answered by changing an earlier
   derivation, revise it rather than work around it, provided the revision is better by the same axioms.
-- A fact enters the records only when a derivation rests on it, as given.
+- A fact enters the records only when a derivation rests on it, as given. A value the project chose or estimated
+  rather than established is marked `Assumed`, with what would settle or overturn it.
+- A derivation whose premise has not been found yet is kept, marked `Open` with what is missing and where it was asked,
+  until the premise is found; it is not left out, and words do not stand in for the premise.
 - Record only decisions that shape later work. Write a shared rule once, on the common ancestor. The owner adjusts the
   threshold when the records grow too fine or too thin.
 
 ## 2. Changing the records
 
-- A derivation changes only by a revision, put to the owner by a card. Find, through `Rests on`, every record resting
-  on what you change, and examine each again: it still holds, or it is revised in the same change.
+- A derivation changes only by a revision the owner rules. Find, through `Rests on`, every record resting on what you
+  change, and examine each again: it still holds, or it is revised in the same change.
+- When a revision replaces a decision, the replaced choice becomes a `Rejected` item of the derivation that replaces
+  it, its reason citing the premise it lost on, so that a change to that premise reopens it.
 - A fact that the project changes reopens every derivation resting on it.
 - A change to the constitution re-derives every derivation resting on the articles it changed.
-- Log every revision.
+- Log every revision. A merged log entry is never changed.
+- Run the system's check (section 3) after every change.
 
-## 3. Cards
+## 3. How the records are stored
 
-A card is a revision put to the owner. It stands in the design where the design reaches its question, so that the text
-before it gives the background, where the design stands and why this is asked; the text around it does not repeat it.
-It has:
+The records are plain text in the language and character set the project sets, in a format a check can read. Each
+field is one line, with a blank line between fields; list items follow straight after their field.
 
-- one question saying what it decides, in plain words, with no internal names;
-- at least three workable options, each with what it does, its cost and its risks; never one approach against not
-  doing it, so that whether to do something becomes how much of it to do;
-- the recommended option;
-- its confidence from 1 to 5, why, and what would overturn it; and where it departs from an earlier ruling;
-- the derivations it adds or changes.
+**The check.** `check.py` in the system's repository checks the format, that every reference resolves and is listed in
+its derivation's `Rests on`, that the derivations form no cycle and that no removed id is used again, and lists what is
+open or assumed:
 
-The card and its revision say the same thing in different words. A ruled card is never changed: a question that
-changes comes back under the same key, saying what changed; a question no longer asked is withdrawn, saying why.
+```
+python3 -B <system>/check.py --root reasoning [--ascii]
+```
 
-## 4. How the records are stored
-
-The records are plain text in the language and character set the project sets, in a format a check can read; a record
-that breaks the format is refused. Each field is one line, with a blank line between fields; list items follow straight
-after their field.
+With `--base <revision> --ready` it also checks, against the revision before the change, that every record added,
+changed or removed is named in a new log entry with its verb, and that no merged entry changed. A change reaches the
+main line only when that passes. `--ascii` is for a project whose records are English only.
 
 **Layout.**
 
 ```
 reasoning/
   constitution.md   the axioms
-  facts/            the facts the derivations rest on, one file per subject
-  derivations/      a tree by concept: a root node derivations/<concept>.md, its children in derivations/<concept>/
+  facts/            the facts the derivations rest on, a tree by subject
+  derivations/      the decisions, a tree by concept
   log.md            every revision, newest first
 ```
+
+Each tree has a node file `<subject>.md` at its top, and the subjects under a node in a directory of the same name
+beside it, `<subject>/`, to any depth.
 
 **Ids.** Every article, fact and derivation has an id: lowercase words joined by hyphens, unique in its kind, never
 reused, and kept when its record moves or is reworded. Every reference must resolve, and the derivations' references
 form no cycle.
 
-**The constitution.** Each article is headed `## Article <n> (<id>). <title>`.
+**The constitution.** Each article is headed `## Article <n> (<id>). <title>`, numbered from 1.
 
-**A fact.**
+**A fact.** A node file holds one or more facts of its subject.
 
 ```
 Fact <id>: <what is taken as given>.
+
+Assumed: <what would settle or overturn it>
 ```
+
+A fact cites no record. `Assumed` is given only for a value the project has not established.
 
 **A derivation.** A node file is named after the concept it governs and holds one or more derivations of it.
 
 ```
 Decision <id>: <the choice>, instead of <the approach not chosen>, because <the derivation>.
-Rests on: <references>
-Holds while: <the conditions under which it holds>
+
+Rests on: <every reference the derivation cites, comma-separated>
+
+Open: <the premise still missing, and where it was asked>
+
 Rejected:
 - <approach>: rejected because <how it differs from the choice, not the choice turned around>
 ```
 
-`Holds while` and `Rejected` are given when there is something to give. A derivation holds no dates, history or
-progress; how it came to be is in the log.
+`because` is required; `instead of` is given when one approach stands against the choice. `Open` and `Rejected` are
+given when there is something to give. A derivation holds no dates, history or progress; how it came to be is in the
+log.
 
 **A log entry.**
 
 ```
 ## <date> <title>
-Changed: <references, each added, changed or removed>
+
+Changed: <reference> <added, changed or removed>, ...
+
 Why: <the derivation>
+
 Re-examined: <each record resting on what changed, and whether it holds or was revised>
-Card: <the card that put it to the owner>
+
+Ruling: <the owner's ruling it carries out>
 ```

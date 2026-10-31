@@ -1,0 +1,24 @@
+name: check
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Test the check and the CI base selection
+        run: python3 -B -m unittest discover -s . -p 'test_check.py' -v
+      - name: Check this system's own records against the change's base
+        env:
+          EVENT: ${{ github.event_name }}
+          REF: ${{ github.ref }}
+          BEFORE: ${{ github.event.before }}
+        run: |
+          base=$(sh review-base.sh "$EVENT" "$REF" "$BEFORE")
+          python3 -B check.py --root reasoning --ascii --base "$base" --ready
