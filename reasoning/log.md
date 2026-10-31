@@ -1,5 +1,15 @@
 # Log
 
+## 2026-10-31 Show what a revision costs and keep the paths that broke
+
+Changed: D:dependents-query added, D:dead-paths-kept added, F:paths-explored-again added
+
+Why: Revising a derivation examines again every record resting on it, so the check lists those for any record, and a challenge of the chain names that cost; and a revision explored and found to break on a record below it is kept as a Rejected item of the derivation it would have revised, citing where it broke, since a path abandoned with no record is explored again and a change to where it broke must reopen it.
+
+Re-examined: no record rests on the three added
+
+Ruling: the owner's ruling of 2026-10-31 to show the dependents of a derivation and to record the paths that broke
+
 ## 2026-10-31 Derive the solution before comparing approaches
 
 Changed: D:derive-before-compare added, D:challenge-the-chain added, F:decisions-anchor added, D:work-review changed

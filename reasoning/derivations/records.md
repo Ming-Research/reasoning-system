@@ -61,6 +61,10 @@ Rests on: C:coherence, D:rejected-list, D:rests-on, D:dependents-examined, D:log
 Rejected:
 - Keeping each replaced decision as a record of its own beside the one that replaced it, with paired moves between them: rejected because the Rejected item already carries what it was and the premise it lost on, and the log carries when (D:log).
 
+Decision dead-paths-kept: A revision explored and found to break on a record resting on what it revises is kept as a Rejected item of the derivation it would have revised, citing the record it broke on, instead of being lost with the work that explored it, because a path abandoned with no record is explored again, and a change to the record it broke on must reopen it.
+
+Rests on: F:paths-explored-again, D:rejected-list, D:replaced-kept
+
 Decision log: Every revision is logged with what changed, why, what resting on it was examined again and the owner's ruling it carries out, newest first, and a merged entry is never changed, while a derivation holds no history, because a revision must show that what rested on it was examined and that the owner ruled it, and a derivation's history is not part of its reasoning.
 
 Rests on: C:coherence, C:owner-inputs, C:membership

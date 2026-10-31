@@ -24,6 +24,9 @@ For agents that derive decisions and change the records. Read `reading.md` first
   change, and examine each again: it still holds, or it is revised in the same change.
 - When a revision replaces a decision, the replaced choice becomes a `Rejected` item of the derivation that replaces
   it, its reason citing the premise it lost on, so that a change to that premise reopens it.
+- A revision explored and found to break on a record resting on what it revises is kept as a `Rejected` item of the
+  derivation it would have revised, citing the record it broke on, so that it is not explored again unless that record
+  changes.
 - A fact that the project changes reopens every derivation resting on it.
 - A change to the constitution re-derives every derivation resting on the articles it changed.
 - Log every revision. A merged log entry is never changed.
@@ -43,7 +46,8 @@ lists what is open or assumed, and the derivations resting on each open one:
 python3 -B <system>/check.py --root reasoning [--ascii]
 ```
 
-With `--base <revision> --ready` it also checks, against the revision before the change, that every record added,
+`--dependents <reference>...` lists every derivation resting on each record named, directly or through others: what a
+revision of it examines again. With `--base <revision> --ready` it also checks, against the revision before the change, that every record added,
 changed or removed is named in a new log entry with its verb, and that no merged entry changed. A change reaches the
 main line only when that passes. `--ascii` is for a project whose records are English only.
 

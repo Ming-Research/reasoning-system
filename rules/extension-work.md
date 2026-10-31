@@ -14,9 +14,12 @@ Work from the records before choosing how to do anything:
      derived.
 3. Challenge the chain the solution stands on. Name the derivations that constrain it most ("without this one, I would
    do..."), and for each say whether revising it would give a clearly better solution by the same articles: that
-   solution, what it gains, what it costs, and which records resting on the derivation would be examined again. Go no
-   higher than the articles, which are the owner's: an article in the way is pointed out, not challenged.
+   solution, what it gains, what it costs, and which records resting on the derivation would be examined again
+   (`check.py --dependents`). Go no higher than the articles, which are the owner's: an article in the way is pointed
+   out, not challenged.
 4. Where a revision would be clearly better, propose it with what rests on it, rather than work around the derivation.
+   Where a revision explored breaks on a record below it, propose keeping it as a `Rejected` item of the derivation it
+   would have revised, citing the record it broke on.
 
 Approaches are compared only for a trade-off or a revision, not as a step of every work.
 

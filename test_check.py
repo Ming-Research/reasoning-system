@@ -159,6 +159,13 @@ class FormTests(Fixture):
                      "Jobs wait in a queue, so that they run one at a time.")
         self.assert_passes()
 
+    def test_the_dependents_of_a_record(self):
+        result = self.assert_passes("--dependents", "C:aim", "D:queue")
+        self.assertIn("dependents of C:aim: 2\n  D:queue (derivations/jobs.md:8)\n  D:serial (derivations/jobs.md:1)",
+                      result.stdout)
+        self.assertIn("dependents of D:queue: 0", result.stdout)
+        self.assert_fails("--dependents: D:nothing is no record", "--dependents", "D:nothing")
+
     def test_a_derivation_without_rests_on(self):
         self.replace("reasoning/derivations/jobs.md", "\nRests on: C:rule, D:serial\n", "")
         self.assert_fails("D:queue has no 'Rests on'")

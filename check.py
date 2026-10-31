@@ -410,12 +410,15 @@ class Records:
 
     def on_open(self, ref):
         """The derivations that rest on an Open derivation, directly or through others."""
+        return self.dependents(ref)
+
+    def dependents(self, ref):
+        """The derivations that rest on a record, directly or through others: what a revision of it examines again."""
         if self.resting is None:
             self.resting = {}
             for other in self.derivations():
                 for premise in self.premises(other):
-                    if premise.startswith("D:"):
-                        self.resting.setdefault(premise, set()).add(other)
+                    self.resting.setdefault(premise, set()).add(other)
         found = set()
         stack = [ref]
         while stack:
@@ -543,6 +546,8 @@ def main():
     parser.add_argument("--ready", action="store_true",
                         help="with --base: every change is named in a new log entry, and no merged entry changed")
     parser.add_argument("--ascii", action="store_true", help="the project keeps its records in English")
+    parser.add_argument("--dependents", nargs="+", metavar="REF",
+                        help="list every derivation resting on each record named, directly or through others")
     args = parser.parse_args()
     records = Records()
     base_metrics = None
@@ -551,6 +556,15 @@ def main():
     else:
         records.load(worktree(args.root), args.ascii)
         records.check_whole()
+        for ref in args.dependents or []:
+            if ref not in records.records:
+                records.err("--dependents", f"{ref} is no record")
+                continue
+            resting = records.dependents(ref)
+            print(f"dependents of {ref}: {len(resting)}")
+            for other in resting:
+                record = records.records[other]
+                print(f"  {other} ({record.path}:{record.start})")
         if args.ready and args.base is None:
             records.err("--ready", "needs --base")
         if args.base is not None:
