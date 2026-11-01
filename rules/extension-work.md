@@ -19,8 +19,8 @@ For each change in the work:
 
 1. **Nothing beyond the decisions.** Each real choice it makes, such as whether the project does something at all, is
    governed by a decision: name the decision. One none governs is a finding, a missing addition.
-2. **Nothing otherwise.** What the change has the project do is as the decisions say: it carries out no option a
-   decision rejected or choice one replaced, without a revision in the work. One that differs is a finding.
+2. **Nothing otherwise.** What the change has the project do is as the decisions say, or as a revision in the work says;
+   one that differs is a finding.
 3. **Nothing dropped alone.** For what it deletes, and what it leaves of an approach it replaces, name the decisions
    touched. A part no longer carried out, or an old approach still running, that is not such a step, said and tracked,
    is a finding.
