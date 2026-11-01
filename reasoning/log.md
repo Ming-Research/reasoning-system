@@ -1,5 +1,15 @@
 # Log
 
+## 2026-10-31 Ask a card for two workable options and the ones found not workable
+
+Changed: D:card-content changed, F:padded-options added
+
+Why: A rule of three workable options got a third made up when a question had two, "leave it as it is" standing as an option its own verdict judged wrong; two workable options, and those found not workable kept with why, give the owner a real trade-off and keep the dead paths from being explored again. The review checks what the card and its chain show and has no duty to search for more options.
+
+Re-examined: D:card-content's dependents, none
+
+Ruling: the owner's ruling of 2026-10-31 to ask for at least two workable options, as recommended
+
 ## 2026-10-31 Show what a revision costs and keep the paths that broke
 
 Changed: D:dependents-query added, D:dead-paths-kept added, F:paths-explored-again added
