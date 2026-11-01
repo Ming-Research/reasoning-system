@@ -45,11 +45,11 @@ Say which records you read.
 ## 3. How to report
 
 For each finding, quote what is at fault and what it fails against, with the premises each rests on, and say what would
-resolve it. A finding is never resolved by citing someone's words.
+resolve it.
 
 ## 4. Reviewing again
 
 The review runs once over the whole change. The review again is given the findings, the answer to each and what changed
-since. It reviews only the fixes that change a choice or rewrite a reason beyond a local repair, what each touched, and
-the decisions resting on each choice changed; it checks that every other fix, listed by its author, is of neither
-kind; and it raises nothing outside these.
+since. It reviews only the changes since that change a choice or rewrite a reason beyond a local repair, what each
+touched, and the decisions resting on each choice changed; it checks that every other change, listed by its author, is
+of neither kind; and it raises nothing outside these.

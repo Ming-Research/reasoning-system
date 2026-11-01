@@ -2,6 +2,9 @@
 
 For every agent whose work rests on a project's records.
 
+Whoever works on the project reads its records together with its code, never one without the other: the records for
+what was decided and rejected, the code for what is built.
+
 ## 1. The records
 
 The project keeps its records in `reasoning/`:
@@ -16,8 +19,7 @@ The project keeps its records in `reasoning/`:
 
 No decision contradicts another, an article, or a fact it rests on. The records name nothing that exists only in one
 implementation, and the project's code, tests and configuration do not cite them; commit messages, pull requests and
-cards may. Whoever works on the project reads the records and the code together: the records for what was decided and
-rejected, the code for what is built.
+cards may.
 
 A reference reads `C:<id>` (an article), `F:<id>` (a fact) or `D:<id>` (a decision).
 
@@ -40,9 +42,8 @@ an earlier one stands unless the later fact changes it.
 
 A decision stands until it is revised, and only a change to one of its bases can revise it: an article replaced, a new
 fact (what the decision was found to have missed, or the need a work brings, among them), or a decision it rests on
-revised. Whoever finds such a change raises it to the owner, naming the base and what was found, and does not set the
-decision aside alone. A real choice no decision makes is not settled alone either: whoever meets one raises it to the
-owner, with what was found.
+revised. Whoever finds such a change, or meets a real choice no decision makes, raises it to the owner with what was
+found, naming the base where there is one, and does not settle it alone.
 
 ## 3. What a real choice is
 
