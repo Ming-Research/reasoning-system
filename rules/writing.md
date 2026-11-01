@@ -48,12 +48,12 @@ to the owner as one card, and is recorded once accepted.
 
 The records are plain text in the language and character set the project sets. Each field is one line, with a blank line
 between fields; list items follow straight after their field. A decision holds no dates but in the facts it declares,
-and no account of how it came to be; the log does.
+and no account of how it came to be.
 
-The decisions, and the facts in `facts/`, are each a tree, by concept and by subject; the log is newest first. A tree
-has a node file `<subject>.md` at its top, and the subjects under it in a directory of the same name beside it,
-`<subject>/`, to any depth. Every article, fact and decision has an id: lowercase words joined by hyphens, unique in its
-kind, never reused, and kept when its record moves.
+The decisions, and the facts in `facts/`, are each a tree, by concept and by subject. A tree has a node file
+`<subject>.md` at its top, and the subjects under it in a directory of the same name beside it, `<subject>/`, to any
+depth. Every article, fact and decision has an id: lowercase words joined by hyphens, unique in its kind, never reused,
+and kept when its record moves.
 
 **An article.** Articles are numbered from 1 in the order they were added.
 
@@ -115,21 +115,6 @@ Follows: F:<id>
 A reference resolves to the one record or declaration with its id. The articles, decisions and facts cited or declared
 in `Chosen` and `Rejected` are the decision's premises, at least one article or decision among those in `Chosen`; a
 reference in `Replaced`, `Broke` or `Lost` is no premise.
-
-**A log entry.**
-
-```
-## <YYYY-MM-DD> <title>
-
-Changed: <reference> <added, revised, re-derived or lost>, ...
-
-Why: <the question added, or the base that changed, and the derivation>
-
-Derived again: <each record resting on what changed, and whether it stood, was revised or was lost>
-```
-
-`re-derived` is a decision whose choice stood and whose text changed: resting on a new article, gaining an item in
-`Broke`, or brought back. An addition gives no `Derived again`.
 
 Run the check after every change, and with `--base <the revision before the change> --ready` before the change is
 merged:

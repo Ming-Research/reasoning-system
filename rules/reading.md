@@ -15,7 +15,6 @@ The project keeps its records in `reasoning/`:
   each with what it does better and why that loses on the premises.
 - `facts/`, **the facts that carry much data**, such as measurements, kept apart so that the decisions resting on them
   stay short, and cited by their ids.
-- `log.md`, **every change to the records**, with why.
 
 No decision contradicts another, an article, or a fact it rests on. The records name nothing that exists only in one
 implementation, and the project's code, tests and configuration do not cite them; commit messages, pull requests and

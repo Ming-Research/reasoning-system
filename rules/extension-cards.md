@@ -25,4 +25,3 @@ not repeat it. It has:
   search for more.
 - A ruled card is never changed: a question that changes comes back under the same key, saying what changed; a question
   no longer asked is withdrawn, saying why.
-- The log entry of the revision names its card in `Ruling`.

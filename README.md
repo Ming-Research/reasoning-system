@@ -22,8 +22,7 @@ that loses on the decision's premises, never the choice turned round; an approac
 
 The records only grow. Nothing in them is deleted and nothing is lost: an overturned choice stays as an approach that
 lost, a mistaken fact beside its correction. Every step of their evolution brings information in, and they stay coherent
-as they grow. The decisions grow by additions and revisions, each put to the owner, and every addition and revision is
-logged with why and what resting on it was derived again.
+as they grow. The decisions grow by additions and revisions, each put to the owner.
 
 - **Facts are only added.** A fact holds of when it was found: a later state of the world, such as a price that has
   dropped since, is a new fact beside it, and a fact found mistaken stays as what was taken to be the case, its
@@ -55,7 +54,6 @@ logged with why and what resting on it was derived again.
   an assumed fact takes part in deriving like any other, its correctness assumed rather than known.
 - **Decisions**: how the project does something, kept as derivations, each a real choice as above. A decision whose
   premises are not known is not recorded until they are found, asked of the owner when need be.
-- **The log**: every change to the records, with why.
 
 The records name nothing that exists only in one implementation: no paths, no names of files, modules, functions,
 types, tables or fields, no ids or numbers of steps or states; a step is named by what it does. No record only
