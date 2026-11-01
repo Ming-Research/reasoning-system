@@ -27,8 +27,6 @@ quotes the work and the decision it fails against, and says what would resolve i
 
 ## 4. Reviewing again
 
-The review runs once over the whole work. A finding may be fixed or rebutted, a rebuttal giving its reasons. The review
-again is given the findings, the answer to each and what changed since. It judges the rebuttals; it reviews only the
-fixes that rewrote logic or behaviour beyond a local repair, and what each touched; it checks that every other fix,
-listed by its author, is not of that kind; and it raises nothing outside these. A finding both sides hold to goes, with
-both, to whoever settles disputes in the project.
+The review runs once over the whole work. The review again is given the findings, the answer to each and what changed
+since. It reviews only the fixes that rewrote logic or behaviour beyond a local repair, and what each touched; it checks
+that every other fix, listed by its author, is not of that kind; and it raises nothing outside these.

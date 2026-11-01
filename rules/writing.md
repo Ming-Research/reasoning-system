@@ -9,8 +9,8 @@ For agents that derive decisions and add them to the records or revise them.
   the facts it needs. Conclude only what the premises give.
 - Record a decision only for a real choice, and name every other option, each with what it does better and why that
   loses on the premises, never the choice turned round.
-- Write the choice, the reasons that decide it and the qualifications it needs, in as few words as keep its meaning to
-  a reader who has only the records. A reason may be the purpose the choice serves.
+- Write the choice, the reasons that decide it and the qualifications it needs, in as few words as keep its meaning. A
+  reason may be the purpose the choice serves.
 - No record names anything that exists only in one implementation: no paths, no names of files, modules, functions,
   types, tables or fields, no ids or numbers of steps or states; a step is named by what it does. No record only
   restates an interface or an implementation. A number the project sets is configuration and is not written, unless the

@@ -49,8 +49,7 @@ resolve it. A finding is never resolved by citing someone's words.
 
 ## 4. Reviewing again
 
-The review runs once over the whole change. A finding may be fixed or rebutted, a rebuttal giving its reasons. The
-review again is given the findings, the answer to each and what changed since. It judges the rebuttals; it reviews only
-the fixes that change a choice or rewrite a reason beyond a local repair, what each touched, and the decisions resting
-on each choice changed; it checks that every other fix, listed by its author, is of neither kind; and it raises nothing
-outside these. A finding both sides hold to goes, with both, to whoever settles disputes in the project.
+The review runs once over the whole change. The review again is given the findings, the answer to each and what changed
+since. It reviews only the fixes that change a choice or rewrite a reason beyond a local repair, what each touched, and
+the decisions resting on each choice changed; it checks that every other fix, listed by its author, is of neither
+kind; and it raises nothing outside these.
