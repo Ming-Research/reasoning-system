@@ -1,51 +1,69 @@
 # Reasoning rules: reading
 
-For every agent whose work rests on the project's reasoning. An agent that also derives and changes the records reads
-`writing.md` too; the design coherence review reads `writing.md` and `dcr.md` too. All of them rest on the constitution
-of the reasoning system, kept with these rules and apart from any project's records. Extensions of the system have
-rules of their own: `extension-work.md` for keeping the work in line with the derivations, and `extension-cards.md` for
-putting revisions to the owner.
+For every agent whose work rests on a project's records.
 
 ## 1. The records
 
-The project keeps its reasoning in one place, `reasoning/`:
+The project keeps its records in `reasoning/`:
 
-- `constitution.md`, **the axioms**: whom the project serves, what it is for and why. Only the owner sets it; nothing
-  in it is derived.
-- `facts/`, **what the derivations take as given**: only facts some derivation rests on. Where a fact comes from and
-  whether it holds are the project's to establish, not the system's. A fact marked `Assumed` is a value the project
-  chose or estimated and has not established.
-- `derivations/`, **the decisions**. Each is one choice where workable approaches had to be traded off: `Decision` is
-  the choice and why; `Rests on` names every article, fact and derivation it cites; `Open` marks one whose premise is
-  still missing; `Rejected` lists the approaches not chosen, with why, the decisions it replaced among them.
-- `log.md`, **every revision**, with why, what was examined again and the owner's ruling.
+- `constitution.md`, **the axioms**: the owner's, and only the owner sets them.
+- `derivations/`, **the decisions**: how the project does something. Each answers one question: from its premises,
+  articles, facts and earlier decisions it cites, it takes one option, and names the other options,
+  each with what it does better and why that loses on the premises.
+- `facts/`, **the facts that carry much data**, such as measurements, kept apart so that the decisions resting on them
+  stay short, and cited by their ids.
+- `log.md`, **every change to the records**, with why.
 
-A reference reads `C:<id>` (an article), `F:<id>` (a fact) or `D:<id>` (a derivation).
+No decision contradicts another, an article, or a fact it rests on. The records name nothing that exists only in one
+implementation, and the project's code, tests and configuration do not cite them; commit messages, pull requests and
+cards may. Whoever works on the project reads the records and the code together: the records for what was decided and
+rejected, the code for what is built.
 
-## 2. Choices no derivation covers
+A reference reads `C:<id>` (an article), `F:<id>` (a fact) or `D:<id>` (a decision).
 
-A choice between workable approaches that no derivation covers is not settled alone: raise it, with what you found and
-why, so that it is derived and the records revised. Ordinary steps with one workable way need nothing.
+**Facts** are what is or was the case, as of when it was found: about the world, the tools, the project as it runs, or
+the owner. Each is declared once, most inline among a decision's reasons as `{F:<id>: ...}`, one that carries much data
+in `facts/`, and is cited elsewhere as `F:<id>`. A fact is known or assumed: an assumed fact takes part in deriving like
+any other, its correctness assumed rather than known, and is marked so. A fact is recorded only when a decision rests on
+it, and is never removed or reworded: a later state, or the correction of a mistake, is a new fact beside it.
 
-## 3. Words are evidence, not reasons
+## 2. What is in force
 
-Nobody's words are a reason: not the owner's, not an agent's, not the architect's. What someone said holds in its
-context and its time. Above all, the owner's words are not truth to be obeyed: they are evidence of the owner's
-reasoning, to be understood.
+The records only grow, so they keep what no longer binds: an article another has replaced, a choice a decision
+replaced with the decisions lost with it, and the revisions explored that broke. These bind nothing, and each is marked
+so. They are kept to be read: before proposing an approach, read whether a decision rejected it, or a revision like it
+broke, and on what. Taking a rejected approach up again is a revision of the decision that rejected it, naming the base
+that changed since.
 
-- **Understand the reasoning behind the words.** Find what they rest on: which axiom, which fact, which decision. Act on
-  what follows from those premises.
-- **When the reasoning cannot be found, ask.** If the owner did not say why, and nothing in the records gives it, ask
-  the owner for the premise. Do not guess it, and do not act on "the owner said so" in its place. Do not ask what the
-  records already give.
-- **When the words contradict the derivations, say so.** Point it out to the owner, quoting both sides and the
-  premises each rests on. Either the words were mistaken or out of their context, and the derivation stands; or they
-  show something the records lack (a fact that changed, a missing premise, a better line of reasoning), and the
-  derivations are examined for a revision.
+A fact holds of when it was found. A new decision is derived from the latest fact on its matter; a decision derived from
+an earlier one stands unless the later fact changes it.
 
-## 4. Who decides what
+A decision stands until it is revised, and only a change to one of its bases can revise it: an article replaced, a new
+fact (what the decision was found to have missed, or the need a work brings, among them), or a decision it rests on
+revised. Whoever finds such a change raises it to the owner, naming the base and what was found, and does not set the
+decision aside alone. A real choice no decision makes is not settled alone either: whoever meets one raises it to the
+owner, with what was found.
 
-- The owner's inputs are the constitution and the decisions. The owner sets the constitution and rules every revision
-  of a derivation, trading approaches off with the reasoning for it.
-- Agents derive, propose derivations and keep the records. The design coherence review checks them.
-- No derivation contradicts the constitution or the facts it rests on.
+## 3. What a real choice is
+
+A choice is real, wherever one is spoken of, only when it has options that trade off against one another: approaches
+none of which another beats on every count or by an overwhelming balance, so that each is better than each other in
+something and worse in something else. An approach another beats so is no option, and with one option left there is no
+choice. Whether a choice seems obvious, or fits an article or a fact, does not decide whether it is one; weighing the
+options against one another on the premises does. A decision names every other option of its choice.
+
+## 4. Words are evidence, not reasons
+
+The owner and the agents derive by the same first principles, from the same premises. Nobody's words are a reason, the
+owner's or any agent's; what someone said holds in its context and its time, and is evidence of the reasoning behind it,
+to be understood. When the owner chooses between approaches, the decision rests on the reasons given for the choice,
+which are facts like any other; that the owner chose is no reason.
+
+- **Find the reasoning behind the words**: which article, fact or decision they rest on, and act on what follows from
+  those premises. A lasting preference or habit of the owner is a fact, a premise on which approaches are weighed like
+  any other.
+- **When the reasoning cannot be found, ask** the owner for the premise, rather than guess it or act on "the owner said
+  so". Do not ask what the records already give.
+- **When the words contradict the decisions, say so to the owner**, quoting both sides and the premises each rests on.
+  Either the words were mistaken or out of their context, and the decision stands; or they bring what the records
+  lack, a new fact or an article the owner changes, and the decision is studied again for a revision.

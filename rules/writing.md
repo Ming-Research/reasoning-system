@@ -1,113 +1,155 @@
-# Reasoning rules: deriving and changing the records
+# Reasoning rules: writing
 
-For agents that derive decisions and change the records. Read `reading.md` first; this adds what an editor does.
+For agents that derive decisions and add them to the records or revise them.
 
-## 1. Deriving
+## 1. Deriving a decision
 
-- Derive from the constitution, the facts and earlier derivations, by first principles. Name the premises, and conclude
-  only what they give.
-- Where the premises leave several workable approaches, the trade-off is put to the owner. The owner's ruling keeps one
-  approach and rejects the others, with the reasoning; that reasoning is what links the new derivation to what it rests
-  on.
-- An earlier derivation is a premise, not a wall. When a question is better answered by changing an earlier
-  derivation, revise it rather than work around it, provided the revision is better by the same axioms.
-- A fact enters the records only when a derivation rests on it, as given. A value the project chose or estimated
-  rather than established is marked `Assumed`, with what would settle or overturn it.
-- A derivation whose premise has not been found yet is kept, marked `Open` with what is missing and where it was asked,
-  until the premise is found; it is not left out, and words do not stand in for the premise.
-- Record only decisions that shape later work. Write a shared rule once, on the common ancestor. The owner adjusts the
-  threshold when the records grow too fine or too thin.
+- A decision answers one question, stated as its head. From its premises it weighs the options and takes one, and its
+  reasons cite each premise: at least one article or earlier decision, which give what matters in the weighing, and
+  the facts it needs. Conclude only what the premises give.
+- Record a decision only for a real choice, and name every other option, each with what it does better and why that
+  loses on the premises, never the choice turned round.
+- Write the choice, the reasons that decide it and the qualifications it needs, in as few words as keep its meaning to
+  a reader who has only the records. A reason may be the purpose the choice serves.
+- No record names anything that exists only in one implementation: no paths, no names of files, modules, functions,
+  types, tables or fields, no ids or numbers of steps or states; a step is named by what it does. No record only
+  restates an interface or an implementation. A number the project sets is configuration and is not written, unless the
+  number itself was a real choice.
+- Every fact is declared once, where it is first stated, and cited by its reference `F:<id>` everywhere else. Most are
+  declared inline among a decision's reasons; a fact that carries much data, such as measurements, is declared in
+  `facts/`. A fact says when it holds, where that matters.
+- When the owner chooses between options, record the reasons given for the choice as facts, and cite the article or
+  decision that makes them matter.
+- A decision whose premises are not found is not recorded: ask the owner for them.
+- How the project's maintainers keep its repository (branches, the limits of a machine) is no decision of the project.
 
-## 2. Changing the records
+## 2. Adding and revising
 
-- A derivation changes only by a revision the owner rules. Find, through `Rests on`, every record resting on what you
-  change, and examine each again: it still holds, or it is revised in the same change.
-- When a revision replaces a decision, the replaced choice becomes a `Rejected` item of the derivation that replaces
-  it, its reason citing the premise it lost on, so that a change to that premise reopens it.
-- A revision explored and found to break on a record resting on what it revises is kept as a `Rejected` item of the
-  derivation it would have revised, citing the record it broke on, so that it is not explored again unless that record
-  changes.
-- A fact that the project changes reopens every derivation resting on it.
-- A change to the constitution re-derives every derivation resting on the articles it changed.
-- Log every revision. A merged log entry is never changed.
-- Run the system's check (section 3) after every change.
+Nothing is removed from the records, and no fact, article or approach is reworded once recorded. Each addition, and
+each revision with the decisions it changes, goes to the owner as one card, and is recorded once accepted.
 
-## 3. How the records are stored
+- **An addition** answers a question no decision answers, with a real choice. It takes the articles and decisions as
+  they stand, changes none of them, and brings the facts its reasons need.
+- **A revision** is possible only when one of the decision's bases changed: a new fact (what the decision was found to
+  have missed, or the need a work brings, among them), an article replaced, or a decision it rests on revised. Name the
+  base, and derive the question again on it. The choice replaced is kept as replaced, with the reasons it was chosen on
+  and the base it lost on; it is also an option again when it still trades off against the new choice. The options are
+  weighed again against the new choice. When the new base leaves a single option, the decision takes it, and its
+  card shows the derivation rather than a choice. Taking up an option a decision rejected is a revision of it. Dropping
+  something the project does is a revision of the decision it stands under, to not doing it.
+- **Deriving again.** When an article is replaced or a decision revised, derive again every decision resting on it: it
+  stands, resting on the new article where one replaced the old; or it is revised in the same card; or, when its
+  question arises only under the approach replaced, it is lost with it. Derive again the decisions resting on each one
+  revised; those resting on one lost are lost with it, and those resting on one that stood are left as they are. A new
+  fact is weighed against the decisions it bears on, found by their questions and by the decisions resting on the fact
+  it follows, and recorded only when it changes one.
+- **What is kept.** A decision lost with an approach stays as it was, marked as lost with it, and so does every
+  decision resting on it. Taking the approach up again brings them back to be derived again, each marked as back with
+  it. A revision explored and
+  found to break on a record it would have had to change is kept with the decision it would have revised, naming that
+  record, and recorded with the card that explored it. Attempts made while coding are not kept.
+- **Facts and articles** are only added: a new fact names the fact it follows, and an article the owner adds names the
+  article it replaces.
 
-The records are plain text in the language and character set the project sets, in a format a check can read. Each
-field is one line, with a blank line between fields; list items follow straight after their field.
+## 3. Format
 
-**The check.** `check.py` in the system's repository checks the format, that every reference resolves and is listed in
-its derivation's `Rests on`, that the derivations form no cycle, that no removed id is used again, that every fact is
-cited by a derivation, and that every derivation not marked `Open` reaches an article through what it rests on. It
-lists what is open or assumed, and the derivations resting on each open one:
+The records are plain text in the language and character set the project sets. Each field is one line, with a blank line
+between fields; list items follow straight after their field. A decision holds no dates but in the facts it declares,
+and no account of how it came to be; the log does.
+
+```
+reasoning/
+  constitution.md   the axioms
+  derivations/      the decisions, a tree by concept
+  facts/            the facts that carry much data, a tree by subject
+  log.md            every change, newest first
+```
+
+A tree has a node file `<subject>.md` at its top, and the subjects under it in a directory of the same name beside it,
+`<subject>/`, to any depth. Every article, fact and decision has an id: lowercase words joined by hyphens, unique in
+its kind, never reused, and kept when its record moves.
+
+**An article.** Articles are numbered from 1 in the order they were added.
+
+```
+## Article <n> (<id>). <title>
+
+<text>
+
+Replaces: C:<id>
+```
+
+**A decision.** A node file is named after the concept it governs and holds the decisions on it.
+
+```
+Decision <id>: <the question it answers>
+
+Chosen: <the option taken>, because <why it wins, citing its premises>
+
+Rejected:
+- <another option>: <what it does better>; rejected because <why that loses on the premises>
+
+Replaced:
+- <a choice replaced>: chosen because <its reasons>; replaced because <the base that changed>
+
+Broke:
+- <a revision explored>: breaks on <the record>
+
+Lost:
+- with D:<id>, <the approach, as that decision's Replaced words it>
+- back with D:<id>, <the approach>
+```
+
+`so that <the purpose it serves>` may stand for `because`, in `Chosen` and in `Replaced`. `Rejected` holds the options;
+a decision added has at least one, and one revised may have none left. `Replaced`, `Broke` and `Lost` are history and
+are given only when there is one; a decision whose last item in `Lost` is a `with` binds nothing.
+
+**A fact.** Declared inline, in a decision's reasons:
+
+```
+{F:<id>: <what is or was the case, and when>}
+{F:<id> (assumed): <what is taken to be the case>}
+{F:<id>: <what is or was the case, and when>; follows F:<id>}
+```
+
+Declared in `facts/`, its data, such as a table, fenced after its head:
+
+````
+Fact <id>: <what is or was the case, and when>
+
+```
+<its data>
+```
+
+Follows: F:<id>
+````
+
+`Fact <id> (assumed):` heads an assumed fact there.
+
+A reference reads `C:<id>`, `F:<id>` or `D:<id>`, and resolves to the one record or declaration with that id. The
+articles, decisions and facts cited or declared in `Chosen` and `Rejected` are the decision's premises, at least one
+article or decision among those in `Chosen`; a reference in `Replaced`, `Broke` or `Lost` is no premise.
+
+**A log entry.**
+
+```
+## <YYYY-MM-DD> <title>
+
+Changed: <reference> <added, revised, re-derived or lost>, ...
+
+Why: <the question added, or the base that changed, and the derivation>
+
+Derived again: <each record resting on what changed, and whether it stood, was revised or was lost>
+```
+
+`re-derived` is a decision whose choice stood and whose text changed: resting on a new article, gaining an item in
+`Broke`, or brought back. An addition gives no `Derived again`.
+
+Run the check after every change, and with `--base <the revision before the change> --ready` before the change is
+merged:
 
 ```
 python3 -B <system>/check.py --root reasoning [--ascii]
 ```
 
-`--dependents <reference>...` lists every derivation resting on each record named, directly or through others: what a
-revision of it examines again. With `--base <revision> --ready` it also checks, against the revision before the change, that every record added,
-changed or removed is named in a new log entry with its verb, and that no merged entry changed. A change reaches the
-main line only when that passes. `--ascii` is for a project whose records are English only.
-
-**Layout.**
-
-```
-reasoning/
-  constitution.md   the axioms
-  facts/            the facts the derivations rest on, a tree by subject
-  derivations/      the decisions, a tree by concept
-  log.md            every revision, newest first
-```
-
-Each tree has a node file `<subject>.md` at its top, and the subjects under a node in a directory of the same name
-beside it, `<subject>/`, to any depth.
-
-**Ids.** Every article, fact and derivation has an id: lowercase words joined by hyphens, unique in its kind, never
-reused, and kept when its record moves or is reworded. Every reference must resolve, and the derivations' references
-form no cycle.
-
-**The constitution.** Each article is headed `## Article <n> (<id>). <title>`, numbered from 1.
-
-**A fact.** A node file holds one or more facts of its subject.
-
-```
-Fact <id>: <what is taken as given>.
-
-Assumed: <what would settle or overturn it>
-```
-
-A fact cites no record. `Assumed` is given only for a value the project has not established.
-
-**A derivation.** A node file is named after the concept it governs and holds one or more derivations of it.
-
-```
-Decision <id>: <the choice>, instead of <the approach not chosen>, because <the derivation>.
-
-Rests on: <every reference the derivation cites, comma-separated>
-
-Open: <the premise still missing, and where it was asked>
-
-Rejected:
-- <approach>: rejected because <how it differs from the choice, not the choice turned around>
-```
-
-A reason is required, after `because`, or after `so that` when it is the purpose the choice serves; so is `Rests on`.
-Only an `Open` derivation whose reason or premises are wholly missing may give neither. `instead of` is given when one
-approach stands against the choice. `Open` and `Rejected` are given when there is something to give. A derivation holds no dates, history or progress; how it came to be is in the
-log.
-
-**A log entry.**
-
-```
-## <date> <title>
-
-Changed: <reference> <added, changed or removed>, ...
-
-Why: <the derivation>
-
-Re-examined: <each record resting on what changed, and whether it holds or was revised>
-
-Ruling: <the owner's ruling it carries out>
-```
+`--dependents <reference>...` lists the decisions resting on each record named.
