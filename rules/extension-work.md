@@ -1,8 +1,11 @@
 # Extension: reviewing the work against the decisions
 
 For the review of a work whose code, specifications or configuration the decisions govern, once it is written. It looks
-for where the work departs from the decisions. A decision not yet carried out in full is no departure, so long as what
-is carried out is as it says.
+for where the work changes the design on its own: a shortcut, another method, more than was decided, a part dropped
+unsaid. Work toward the decisions in steps is no departure: a decision carried out in part, so long as what is carried
+out is as it says; a part left out of a rewrite to be carried out again, or an old approach still running while a
+migration goes on, so long as the work says so and leaves what remains to do tracked where later work will find it, such
+as in a comment or a document.
 
 ## 1. What to read
 
@@ -16,11 +19,11 @@ For each change in the work:
 
 1. **Nothing beyond the decisions.** Each real choice it makes, such as whether the project does something at all, is
    governed by a decision: name the decision. One none governs is a finding, a missing addition.
-2. **Nothing otherwise.** What it carries out of a decision is as the decision says. Carrying out an option a decision
-   rejected or a choice one replaced, without a revision in the work, is a finding, and so is a part of an approach the
-   work replaces still carried out.
-3. **Nothing dropped alone.** For what it deletes, name the decisions it touched. A decision, or a part of one, no
-   longer carried out without a revision in the work dropping it is a finding.
+2. **Nothing otherwise.** What the change has the project do is as the decisions say: it carries out no option a
+   decision rejected or choice one replaced, without a revision in the work. One that differs is a finding.
+3. **Nothing dropped alone.** For what it deletes, and what it leaves of an approach it replaces, name the decisions
+   touched. A part no longer carried out, or an old approach still running, that is not such a step, said and tracked,
+   is a finding.
 
 ## 3. How to report
 
