@@ -1,15 +1,12 @@
 # Extension: reviewing the work against the decisions
 
 For the review of a work whose code, specifications or configuration the decisions govern, once it is written. It looks
-for where the work changes the design on its own: a shortcut, another method, more than was decided, a part dropped
-unsaid. Work toward the decisions in steps is no departure: a decision carried out in part, so long as what is carried
-out is as it says; a part left out of a rewrite to be carried out again, or an old approach still running while a
-migration goes on, so long as the work says so and leaves what remains to do tracked where later work will find it, such
-as in a comment or a document.
+for where the work departs from the decisions on its own: does more than they decide, does otherwise, or drops part of
+them unsaid. A decision carried out only in part, or over several works, is no departure in itself.
 
 ## 1. What to read
 
-- The whole change, what it directly affects, and wherever an approach it replaces is still carried out.
+- The whole change, what it directly affects, and wherever a choice replaced in the decisions it meets still runs.
 - The decisions on the questions these meet, those the work adds or revises among them, with what each rejected and
   replaced.
 
@@ -19,11 +16,13 @@ For each change in the work:
 
 1. **Nothing beyond the decisions.** Each real choice it makes, such as whether the project does something at all, is
    governed by a decision: name the decision. One none governs is a finding, a missing addition.
-2. **Nothing otherwise.** What the change has the project do is as the decisions say, or as a revision in the work says;
-   one that differs is a finding.
-3. **Nothing dropped alone.** For what it deletes, and what it leaves of an approach it replaces, name the decisions
-   touched. A part no longer carried out, or an old approach still running, that is not such a step, said and tracked,
-   is a finding.
+2. **Nothing otherwise.** What the change has the project do under a decision is as the decision says, or as a revision
+   in the work says, even while a part is left for later. One that differs is a finding, but for a replaced choice still
+   running, which the next check takes.
+3. **Nothing dropped alone.** For what it deletes, and wherever a replaced choice still runs, name the decisions
+   touched. What they say no longer carried out, or a replaced choice still running, is a finding unless a revision in
+   the work drops it, or the work says, where later work will find it, such as in a comment or a document, what remains
+   to do to carry them out.
 
 ## 3. How to report
 
