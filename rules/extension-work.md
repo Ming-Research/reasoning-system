@@ -1,6 +1,8 @@
 # Extension: reviewing the work against the decisions
 
-For the review of a work whose code, specifications or configuration the decisions govern, once it is written.
+For the review of a work whose code, specifications or configuration the decisions govern, once it is written. It
+looks for where the work departs from the decisions: where it does otherwise, does more, or decides alone. A decision
+carried out only in part is no departure.
 
 ## 1. What to read
 
@@ -12,13 +14,13 @@ For the review of a work whose code, specifications or configuration the decisio
 
 For each change in the work:
 
-1. **Each real choice it makes is governed by a decision**: name the decision. A choice none governs is a finding, a
-   missing addition.
-2. **It contradicts no decision**, and carries out no option a decision rejected, without a revision in the work.
-3. **What it deletes**: name the decisions it touched. A decision, or a part of one, left with nothing carrying it out,
-   or an option rejected or a choice replaced still carried out, is a finding.
-4. **What the decisions commit to**: for each decision the work carries out, adds or revises, name what carries out
-   each part. A part missing, half done or a placeholder is a finding.
+1. **Nothing beyond the decisions.** Each real choice it makes, and everything it has the project do, is governed by a
+   decision: name the decision. One none governs is a finding, a missing addition.
+2. **Nothing otherwise.** What it carries out of a decision is as the decision says, and it carries out no option a
+   decision rejected or choice one replaced. One that differs, without a revision in the work, is a finding.
+3. **Nothing dropped alone.** For what it deletes, name the decisions it touched. A decision, or a part of one, no
+   longer carried out without a revision in the work dropping it is a finding; so is a part of an approach the work
+   replaces still carried out.
 
 ## 3. How to report
 
