@@ -25,9 +25,10 @@ Say which records you read.
    where that matters; a new fact on a matter a recorded fact covers follows that fact.
 4. **Each record is what it says.** A decision is how the project does something, and answers the one question its head
    states; a second choice in it is a decision of its own. A fact is what is or was the case. No record names anything
-   that exists only in one implementation, holds a word that takes its meaning from where or when it was written, or
-   only restates an interface or an implementation; and no set number is written unless it was a real choice. A decision
-   gives its choice, the reasons that decide it and the qualifications it needs, and no more.
+   that exists only in one implementation or only restates an interface or an implementation; no decision or fact holds
+   a word that takes its meaning from a conversation, card or work, or from when it was written; and no set number is
+   written unless it was a real choice. A decision gives its choice, the reasons that decide it and the qualifications
+   it needs, and no more.
 5. **An addition** answers a question no decision answers, and changes none. Taking an approach a decision rejected, or
    one a revision broke on, is a revision of that decision.
 6. **A revision** names a base that really changed: an article replaced, a new fact, or a decision it rests on

@@ -15,9 +15,8 @@ For agents that derive decisions and add them to the records or revise them.
   types, tables or fields, no ids or numbers of steps or states; a step is named by what it does. No record only
   restates an interface or an implementation. A number the project sets is configuration and is not written, unless the
   number itself was a real choice.
-- A record is read long after it is written, without what it was written beside: no word in it takes its meaning from
-  the conversation, card or work it came from, or from when it was written. No "now", "new" or "current", no "option B",
-  no number of a work, an item or a version.
+- No word in a decision or a fact takes its meaning from a conversation, card or work, or from when it was written: no
+  "the new flow", "until now" or "option B", no number that a work, a task or a card goes by.
 - Every fact is declared once, where it is first stated, and cited by its reference `F:<id>` everywhere else. Most are
   declared inline among a decision's reasons; a fact that carries much data, such as measurements, is declared in
   `facts/`. A fact says when it holds, where that matters.

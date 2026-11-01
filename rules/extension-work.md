@@ -1,12 +1,12 @@
 # Extension: reviewing the work against the decisions
 
-For the review of a work whose code, specifications or configuration the decisions govern, once it is written. It
-looks for where the work departs from the decisions: where it does otherwise, does more, or decides alone. A decision
-carried out only in part is no departure.
+For the review of a work whose code, specifications or configuration the decisions govern, once it is written. It looks
+for where the work departs from the decisions. A decision not yet carried out in full is no departure, so long as what
+is carried out is as it says.
 
 ## 1. What to read
 
-- The whole change, and what it directly affects.
+- The whole change, what it directly affects, and wherever an approach it replaces is still carried out.
 - The decisions on the questions these meet, those the work adds or revises among them, with what each rejected and
   replaced.
 
@@ -14,13 +14,13 @@ carried out only in part is no departure.
 
 For each change in the work:
 
-1. **Nothing beyond the decisions.** Each real choice it makes, and everything it has the project do, is governed by a
-   decision: name the decision. One none governs is a finding, a missing addition.
-2. **Nothing otherwise.** What it carries out of a decision is as the decision says, and it carries out no option a
-   decision rejected or choice one replaced. One that differs, without a revision in the work, is a finding.
+1. **Nothing beyond the decisions.** Each real choice it makes, such as whether the project does something at all, is
+   governed by a decision: name the decision. One none governs is a finding, a missing addition.
+2. **Nothing otherwise.** What it carries out of a decision is as the decision says. Carrying out an option a decision
+   rejected or a choice one replaced, without a revision in the work, is a finding, and so is a part of an approach the
+   work replaces still carried out.
 3. **Nothing dropped alone.** For what it deletes, name the decisions it touched. A decision, or a part of one, no
-   longer carried out without a revision in the work dropping it is a finding; so is a part of an approach the work
-   replaces still carried out.
+   longer carried out without a revision in the work dropping it is a finding.
 
 ## 3. How to report
 
