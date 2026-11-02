@@ -1,37 +1,29 @@
 # Guide: building a tree, or rebuilding one
 
 For whoever builds a project's records from nothing, or rebuilds them from records kept another way. The rules in
-`rules/` say what the records are; this says how to go about making them. No agent is given it in a project's work.
+`rules/` say what the records are; this gives the order of the work they lead to.
 
 ## Building from nothing
 
-1. **The constitution first.** The owner's articles, with the precedence among them. Nothing is derived before them.
-2. **The questions.** From the project as it is, its code, its documents and the owner, list the real choices it has
-   made or must make, each as one question.
-3. **In order.** A decision whose choice frames other questions comes before them, so that theirs can name it in
-   `Given`.
-4. **Each decision.** Its options; research where the answer turns on what is not known, its results recorded as
-   facts; what each option does better than each other; the weighing by the articles; a card to the owner.
-5. **Not recorded:** a step with one way, what only restates the implementation, a number set as configuration.
+1. **The constitution first.** Every decision rests on an article, directly or through other decisions, so none can be
+   derived before the articles and their precedence are set.
+2. **The questions.** Each decision answers one question the project meets, so the work starts by listing the real
+   choices the project has made or must make, from its code, its documents and its owner, each as a question.
+3. **In order.** A question that arises only under an option of another decision names it in `Given`, so the decision
+   that frames it is derived first.
+4. **Each decision** is then derived as `rules/writing.md` says, and put to the owner.
 
-## Rebuilding from existing records
+## Rebuilding from records kept another way
 
-The old records are evidence, not records: nothing is carried over as written. Copying them over one for one carries
-their descriptions, their names from the implementation and their padded options into the new records.
-
-1. **The questions.** For each old record, the question it answers. Records answering the same question become one;
-   a record answering several becomes one decision for each.
-2. **Real choice or not.** A record that is no real choice is dropped, the facts in it kept for the decisions that need
-   them. Only what is plain is dropped without asking: an option that is padding beyond doubt, or one for which no gain
-   over the others or no cost can be written. Anything else is asked of the owner.
-3. **The options.** An approach was researched in earnest when the discussion at the time, the commits or other data
-   show it; it is then an option, and what its research found are facts. Where nothing shows it, judge whether it was
-   padding; when unsure, ask the owner.
-4. **Rewritten** in the form `rules/writing.md` gives, the facts declared with when they hold.
-5. **Asked, not filled in:** a decision whose only reason is someone's words; a change of choice with no base that
-   changed; a defect listed as an option; a gain or a cost that bears on no article.
-6. **No history.** The rebuilt records start with no `Replaced`, `Broke` or `Lost`; the old records' history stays in
-   the repository's.
-7. **With the owner, in conversation.** The rebuild is worked through with the owner directly, concept by concept and
-   decision by decision, not through the project's flow. Each batch passes the check and the review before the owner
-   rules on it.
+1. **The old records are evidence, not records.** They were written by other rules, so copying them over carries what
+   these rules keep out: descriptions, names from the implementation, options nobody would take. Each is read for the
+   question it answers and for the reasons and facts it gives.
+2. **One decision for each question.** Old records answering the same question become one; one answering several
+   becomes one for each.
+3. **What the old records do not show is a premise not found.** Whether a choice was real, whether an option was more
+   than padding, whether an approach was researched in earnest, why the choice fell as it did: where neither the old
+   record nor what the work left behind (its discussions, commits and data) shows it, it is asked of the owner, as
+   `rules/reading.md` says of any premise not found. An approach with no gain over any other is no option by the same
+   rules, and is dropped without asking.
+4. **In batches.** The rebuild goes concept by concept, a decision that frames others before them, each batch passing
+   the check and the review before it goes to the owner.
