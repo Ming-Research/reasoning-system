@@ -69,3 +69,7 @@ Replaces: C:coherence
 
 Article 11, which answers for the content's coherence, comes before every other article. No other precedence is set
 among them.
+
+## Article 13 (efficient). Efficient
+
+The system, and the work of keeping and using it, take as little effort and time as they can.
