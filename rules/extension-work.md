@@ -14,8 +14,9 @@ them unsaid. A decision carried out only in part, or over several works, is no d
 
 For each change in the work:
 
-1. **Nothing beyond the decisions.** Each real choice it makes, such as whether the project does something at all, is
-   governed by a decision: name the decision. One none governs is a finding, a missing addition.
+1. **Nothing beyond the decisions.** Each choice it makes that is real and costly to reverse, such as whether the
+   project does something at all, is governed by a decision: name the decision. One none governs is a finding, a
+   missing addition. A choice cheap to change needs none.
 2. **Nothing otherwise.** What the change has the project do under a decision is as the decision says, or as a revision
    in the work says, even while a part is left for later. One that differs is a finding, but for a replaced choice still
    running, or built on until its successor is ready, which the next check takes.
@@ -32,8 +33,11 @@ what would resolve it.
 
 ## 4. Reviewing again
 
-The review runs once over the whole work. The review again is given the findings and the checks not verified, the answer
-to each and what changed since. It decides each check not verified, passed or a finding; it reviews only the changes
-since that change a decision or rewrite logic or behaviour beyond a local repair, and what each touched; it checks that
-every other change, listed by its author, is of neither kind; and it raises nothing outside these as findings: what it
-notices outside them it lists, for the author to answer.
+The review runs once over the whole work. The review again is made by the same reviewer where it can be, and is given
+the findings and the checks not verified, the answer to each and what changed since. It decides each check not
+verified, passed or a finding; it reviews only the changes since that change a decision or rewrite logic or behaviour,
+and what each touched. What it notices outside these it lists for the author to answer only where a departure may hang
+on it.
+
+The review runs again at most twice. A finding still open then goes to the owner, with the reviewer's case and the
+author's answer.

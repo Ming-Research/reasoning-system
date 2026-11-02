@@ -1,7 +1,13 @@
 # Reasoning rules: the design coherence review (DCR)
 
-For the review of an addition or a revision to the records, before it goes to the owner, and again once the owner's
-choice is written in. It judges what the check cannot, and does not check again what the check reports.
+For the review of an addition or a revision to the records, by an agent that did not write it, before it goes to the
+owner, and again once the owner's choice is written in. It judges what the check cannot, and does not check again what
+the check reports.
+
+The review is there to make sure the reasoning is right and the choice it reaches can be relied on. A finding is a fault
+the reasoning or the choice hangs on. Of anything you notice, ask: left as it is, does the reasoning still hold and the
+choice still fall the same way? If so, it is no finding and is not reported: wording, a tag, a citation or a sentence
+that could be tighter, where the reasoning does not hang on it.
 
 ## 1. What to read
 
@@ -16,33 +22,34 @@ Say which records you read.
 
 ## 2. What to check
 
-1. **Each choice made is real** and names every option: one that is no option, or one you see missing, is a finding.
+1. **Each choice made is real and costly to reverse**, and no option that could win is missing. A choice cheap to
+   change has no place in the records.
 2. **Each reason is a derivation.** One that shows only that the choice fits an article or a fact, not why each other
    option loses, is not; nor is one resting on a gain or a cost no article bears on.
-3. **Each record cites what it rests on**, and nothing it cites goes unused. What a reason states as the case is a
-   declared fact; a new fact on a matter a recorded fact covers follows that fact.
-4. **Each record is what it says.** A second choice in a decision is a decision of its own; and each record keeps the
-   rules on what it names, words bound to where or when they were written, restating an interface or an
-   implementation, set numbers, and length.
+3. **What the choice rests on holds.** A premise the reasoning needs that is neither cited nor declared, or that a
+   record or a fact contradicts, is a finding.
+4. **Each decision answers one question.** A second choice made inside it, unweighed, is a decision of its own. A word
+   that takes its meaning from where or when it was written keeps the reasoning from being followed later.
 5. **An addition or a revision is one.** Taking up an approach a revision broke on is a revision. The base a revision
-   names really changed, and the choice it replaces lost on it; one left with one option shows every other, the choice
-   replaced among them, beaten on the new base; one kept as broke breaks on the record it names, one not resting on the
-   decision it revises.
+   names really changed, and the choice it replaces lost on it; one kept as broke breaks on the record it names, one
+   not resting on the decision it revises.
 6. **Deriving again came out right** for every decision resting on what changed and on each one revised in turn; a
    decision a new fact changes that the change leaves alone is a finding.
-7. **The records stay coherent.** A decision that narrows another is a revision of it.
-8. **The card and the records agree.** The records take the option chosen on the card, on the reasons given for it, and
-   say of each option what the card says.
+7. **The records stay coherent.** No decision contradicts another, an article or a fact it rests on; a decision that
+   narrows another is a revision of it.
+8. **The card and the records agree** on the option chosen and the reasons for it.
 
 ## 3. How to report
 
-For each finding, quote what is at fault and what it fails against, with the premises each rests on, and say what would
-resolve it.
+For each finding, quote what is at fault and what it fails against, say which step of the reasoning it breaks and
+whether the choice could then fall another way, which and why, and say what would resolve it.
 
 ## 4. Reviewing again
 
-The review runs once over the whole change. The review again is given the findings, the answer to each and what changed
-since. It reviews only the changes since that change a choice or rewrite a reason beyond a local repair, what each
-touched, and the decisions resting on each choice changed; it checks that every other change, listed by its author, is
-of neither kind; and it raises nothing outside these as findings: what it notices outside them it lists, for the author
-to answer.
+The review runs once over the whole change. The review again is made by the same reviewer where it can be, and is given
+the findings, the answer to each and what changed since. It reviews only the changes since that change a choice or
+rewrite a reason, what each touched, and the decisions resting on each choice changed. What it notices outside these it
+lists for the author to answer only where the reasoning or a choice hangs on it.
+
+The review runs again at most twice. A finding still open then goes to the owner with the change, with the reviewer's
+case and the author's answer.

@@ -13,8 +13,9 @@ Given a solution:
   `python3 -B <system>/check.py --root reasoning --dependents <reference>` lists the decisions resting on a record,
   directly or through others.
 - Follow a revision down as far as it holds: one that breaks is reported with the record it breaks on, one not resting
-  on the decision revised.
+  on the decision revised, and whether it was researched or only tried briefly; a researched one goes to the owner to
+  be kept.
 - An article in the way, or the precedence among the articles, is pointed out, not challenged.
 
-The challenge is open: try what you will, deriving by the same first principles, and report what was tried and where
-it led.
+Then the challenge is open: try what else you will, deriving by the same first principles, and report what was tried
+and where it led.

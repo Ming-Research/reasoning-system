@@ -73,3 +73,17 @@ among them.
 ## Article 13 (efficient). Efficient
 
 The system, and the work of keeping and using it, take as little effort and time as they can.
+
+## Article 14 (extensions-scope). Its extensions
+
+Keeping a project's work in line with its decisions, the way an addition or a revision is put to the owner, and
+challenging the decisions a solution stands on are extensions of the system, not part of it. That the owner rules each
+addition and each revision is part of it.
+
+Replaces: C:extensions
+
+## Article 15 (costly-choices). What it records
+
+The decisions the system keeps are choices costly to reverse: much is built on them, or choosing wrong costs much. A
+choice cheap to change is made where it lives, in the rules, the code or its documents, and changed there; it is not
+recorded.

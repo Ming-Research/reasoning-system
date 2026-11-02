@@ -9,9 +9,10 @@ only growing.
 A decision answers one question. It weighs the options that answer it, each with what it does better than each other,
 by the articles of the project's constitution and, where they pull apart, by the precedence the constitution sets; the
 weighing is a judgment, stated in its reasons. It takes one option and says why each other loses. Its premises are the
-articles, facts and earlier decisions it cites, an article or a decision among them. Only a real choice is a decision:
-options that trade off, each better than each other in something. No decision contradicts another, an article, or a
-fact it rests on.
+articles, facts and earlier decisions it cites, an article or a decision among them. Only a choice both real and costly
+to reverse is a decision: options that trade off, each better than each other in something, and much built on the one
+taken, or much lost by taking the wrong one. A choice cheap to change is made where it lives, in the rules, the code or
+its documents, and is not recorded. No decision contradicts another, an article, or a fact it rests on.
 
 ## Evolution
 
@@ -19,8 +20,8 @@ The records only grow. Facts and articles are only added; a later state or a cor
 and an article the owner changes is a new one replacing the old. A decision changes only when one of its bases changes:
 an article replaced, a new fact, or a decision it rests on revised. A revision keeps the choice it replaces with the
 weighing it was chosen on and the base it lost on; the decisions resting on it are derived again; a decision whose
-question arose only under the option replaced is lost with it, and back with it if it returns; a revision explored that
-broke is kept with the record it broke on. Each addition and each revision goes to the owner as a card.
+question arose only under the option replaced is lost with it, and back with it if it returns; a revision explored whose
+break was established is kept with the record it broke on. Each addition and each revision goes to the owner as a card.
 
 ## The records
 

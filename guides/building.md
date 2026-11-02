@@ -7,8 +7,9 @@ For whoever builds a project's records from nothing, or rebuilds them from recor
 
 1. **The constitution first.** Every decision rests on an article, directly or through other decisions, so none can be
    derived before the articles and their precedence are set.
-2. **The questions.** Each decision answers one question the project meets, so the work starts by listing the real
-   choices the project has made or must make, from its code, its documents and its owner, each as a question.
+2. **The questions.** Each decision answers one question the project meets, so the work starts by listing the choices
+   the project has made or must make that are real and costly to reverse, from its code, its documents and its owner,
+   each as a question. The rest are made where they live.
 3. **In order.** A question that arises only under an option of another decision names it in `Given`, so the decision
    that frames it is derived first.
 4. **Each decision** is then derived as `rules/writing.md` says, and put to the owner.
@@ -24,6 +25,7 @@ For whoever builds a project's records from nothing, or rebuilds them from recor
    than padding, what an approach does better than each other, why the choice fell as it did: where neither the old
    record nor what the work left behind (its discussions, commits and data) shows it, it is asked of the owner, as
    `rules/reading.md` says of any premise not found. An approach with no gain over any other is no option by the same
-   rules, and is dropped without asking.
+   rules, and is dropped without asking; so is an old record of a choice cheap to change, what it settles left to the
+   rules, the code or the documents where it lives.
 4. **In batches.** The rebuild goes concept by concept, a decision that frames others before them, each batch passing
    the check and the review before it goes to the owner.

@@ -35,20 +35,22 @@ it, and is never removed or reworded: a later state, or the correction of a mist
 ## 2. What is in force
 
 The records only grow, so they keep what no longer binds: an article another has replaced, a choice a decision replaced
-with the decisions lost with it, and the revisions explored that broke. These bind nothing, and each is marked so. They
-are kept to be read: before proposing an approach, read whether a decision weighed it and on what it lost, or a revision
-like it broke. Taking up an approach a decision names but does not choose is a revision of that decision, naming the
-base that changed since.
+with the decisions lost with it, and the revisions explored whose break was established. These bind nothing, and each is
+marked so. They are kept to be read: before proposing an approach, read whether a decision weighed it and on what it
+lost, or a revision like it broke. Taking up an approach a decision names but does not choose is a revision of that
+decision, naming the base that changed since.
 
 A fact holds of when it was found. A new decision is derived from the latest fact on its matter; a decision derived from
 an earlier one stands unless the later fact changes it.
 
 A decision stands until it is revised, and only a change to one of its bases can revise it: an article replaced, a new
 fact (what the decision was found to have missed, or the need a work brings, among them), or a decision it rests on
-revised. Whoever finds such a change, or meets a real choice no decision makes, raises it to the owner with what was
+revised. Whoever finds such a change, or meets a costly choice no decision makes, raises it to the owner with what was
 found, naming the base where there is one, and does not settle it alone.
 
-## 3. What a real choice is
+## 3. What a decision is
+
+A decision is a choice that is both real and costly to reverse.
 
 A choice is real, wherever one is spoken of, only when it has options that trade off against one another: approaches
 none of which another beats on every count or by an overwhelming balance, so that each is better than each other in
@@ -56,6 +58,11 @@ something and worse in something else. An approach another beats so, or one that
 serving an article less than another option does is a cost. With one option left there is no choice. Whether a choice
 seems obvious, or fits an article or a fact, does not decide whether it is one; weighing the options against one another
 on the premises does.
+
+A choice is costly to reverse when much comes to be built on it, code, data, other decisions or what others rely on, or
+when choosing wrong costs much. Ask: had the other option been taken, and found wrong some months later, how much would
+have to be redone? If no more than a rule's text, a function or a page, the choice is made where it lives, in the
+rules, the code or its documents, and changed there, without a record, a card or a review of the records.
 
 ## 4. Words are evidence, not reasons
 
