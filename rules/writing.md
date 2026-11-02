@@ -40,8 +40,8 @@ to the owner as one card, and is recorded once accepted.
   it follows, and recorded only when it changes one.
 - **What is kept.** A decision lost with an approach stays as it was, marked as lost with it, and so does every decision
   resting on it. Taking the approach up again brings them back to be derived again, each marked as back with it. A
-  revision explored and found to break on a record it would have had to change is kept with the decision it would have
-  revised, naming that record, and recorded with the card that explored it. Attempts made while coding are not kept.
+  revision explored and found to break on a record not resting on the decision it revises is kept with that decision,
+  naming the record, and recorded with the card that explored it. Attempts made while coding are not kept.
 - **Follows and replaces.** A new fact names the fact it follows, and an article the owner adds names the article it
   replaces.
 

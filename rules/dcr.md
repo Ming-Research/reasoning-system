@@ -25,8 +25,8 @@ Say which records you read.
    implementation, set numbers, and length.
 5. **An addition or a revision is one.** Taking up an approach a revision broke on is a revision. The base a revision
    names really changed, and the choice it replaces lost on it; one left with one option shows every other, the choice
-   replaced among them, beaten on the new base; one kept as broke breaks on the record it names, one it would have had
-   to change.
+   replaced among them, beaten on the new base; one kept as broke breaks on the record it names, one not resting on the
+   decision it revises.
 6. **Deriving again came out right** for every decision resting on what changed and on each one revised in turn; a
    decision a new fact changes that the change leaves alone is a finding.
 7. **The records stay coherent.** A decision that narrows another is a revision of it.
