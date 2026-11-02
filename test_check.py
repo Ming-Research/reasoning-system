@@ -482,6 +482,13 @@ class ReadyTests(Case):
         _listed, report = self.assert_passes(**self.ready(base))
         self.assertIn("articles: 3 (base 2, +1)", report[0])
 
+    def test_a_base_in_an_earlier_form_is_not_compared(self):
+        base = self.files()
+        base["derivations/order.md"] = b"## D:serial. How many jobs run at once?\n\nRests on: C:rule\n"
+        self.replace(TIES, "")
+        listed, _report = self.assert_passes(**self.ready(base))
+        self.assertIn("the base does not pass the check as it stands", listed[0])
+
     def test_a_record_removed_or_moved(self):
         base = self.files()
         self.replace(TIES, "")

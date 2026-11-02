@@ -772,9 +772,10 @@ class Records:
 
 def check_files(files, base=None, ready=False, ascii_only=False, dependents=()):
     """The check of the records in files, which maps each path under the records' root to its bytes; with base, the
-    records at the revision before the change in the same form, they are counted against it and, with ready, checked
-    to have only grown since it. Returns the errors, the dependents listed, and the report given when there is no
-    error."""
+    records at the revision before the change, they are counted against it and, with ready, checked to have only grown
+    since it, unless the base does not pass the check as it stands, as when its records were kept in an earlier form:
+    then the records are checked as they are, and a line says so. Returns the errors, the lines listed, and the report
+    given when there is no error."""
     records = Records()
     records.load(files, ascii_only)
     records.check_whole()
@@ -791,9 +792,14 @@ def check_files(files, base=None, ready=False, ascii_only=False, dependents=()):
     if base is not None:
         then = Records()
         then.load(base)
-        base_metrics = then.metrics()
-        if ready:
-            records.check_ready(then)
+        then.check_whole()
+        if then.errors:
+            listed.append(f"the base does not pass the check as it stands ({len(then.errors)} error(s)), as when its "
+                          "records were kept in an earlier form: the records are checked as they are, not against it")
+        else:
+            base_metrics = then.metrics()
+            if ready:
+                records.check_ready(then)
     return records.errors, listed, records.report(base_metrics)
 
 
