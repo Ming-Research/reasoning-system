@@ -1,10 +1,8 @@
 # Extension: reviewing the work against the decisions
 
-For the review of a work whose code, specifications or configuration the decisions govern, once it is written. A work is
-in line with the decisions when all it has the project do is as a decision says and it settles no real choice that none
-makes. So the review looks for where the work departs on its own: it has the project do what no decision decides, or
-other than a decision decides, or no longer do what a decision decides, with no revision saying so. A decision carried
-out in part, or over several works, has the project do nothing other than it says, so it is no departure in itself.
+For the review of a work whose code, specifications or configuration the decisions govern, once it is written. It looks
+for where the work departs from the decisions on its own: does more than they decide, does otherwise, or drops part of
+them unsaid. A decision carried out only in part, or over several works, is no departure in itself.
 
 ## 1. What to read
 
@@ -24,8 +22,7 @@ For each change in the work:
 3. **Nothing dropped alone.** For what it deletes, and wherever a replaced choice still runs or is built on, name the
    decisions touched. What they say no longer carried out, or a replaced choice still running or built on, is a finding
    unless a revision in the work drops it, or the work makes plain, where later work will find it, such as in a comment
-   or a document, that it is for now, and what remains to do to carry the decisions out. Later work finds only what is
-   written, since agents carry nothing from one work to the next but that.
+   or a document, that it is for now, and what remains to do to carry the decisions out.
 
 ## 3. How to report
 
@@ -35,8 +32,7 @@ what would resolve it.
 
 ## 4. Reviewing again
 
-The review runs once over the whole work. The review again is given the findings and the checks not verified, the answer
-to each and what changed since. It decides each check not verified, passed or a finding; it reviews only the changes
-since that change a decision or rewrite logic or behaviour beyond a local repair, and what each touched; it checks that
-every other change, listed by its author, is of neither kind; and it raises nothing outside these. What did not change
-since the first review, and rests on nothing that changed, was reviewed already.
+The review runs once over the whole work. The review again is given the findings and the checks not verified, the
+answer to each and what changed since. It decides each check not verified, passed or a finding; it reviews only the
+changes since that change a decision or rewrite logic or behaviour beyond a local repair, and what each touched; it
+checks that every other change, listed by its author, is of neither kind; and it raises nothing outside these.

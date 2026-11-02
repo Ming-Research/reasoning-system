@@ -1,8 +1,7 @@
 # Reasoning rules: the design coherence review (DCR)
 
 For the review of an addition or a revision to the records, before it goes to the owner, and again once the owner's
-choice is written in. It judges what the check cannot, and does not check again what the check reports, since the check
-finds every fault it looks for on every change.
+choice is written in. It judges what the check cannot, and does not check again what the check reports.
 
 ## 1. What to read
 
@@ -45,5 +44,4 @@ resolve it.
 The review runs once over the whole change. The review again is given the findings, the answer to each and what changed
 since. It reviews only the changes since that change a choice or rewrite a reason beyond a local repair, what each
 touched, and the decisions resting on each choice changed; it checks that every other change, listed by its author, is
-of neither kind; and it raises nothing outside these. What did not change since the first review, and rests on nothing
-that changed, was reviewed already.
+of neither kind; and it raises nothing outside these.
