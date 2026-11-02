@@ -21,7 +21,7 @@ For whoever builds a project's records from nothing, or rebuilds them from recor
 2. **One decision for each question.** Old records answering the same question become one; one answering several
    becomes one for each.
 3. **What the old records do not show is a premise not found.** Whether a choice was real, whether an option was more
-   than padding, whether an approach was researched in earnest, why the choice fell as it did: where neither the old
+   than padding, what an approach does better than each other, why the choice fell as it did: where neither the old
    record nor what the work left behind (its discussions, commits and data) shows it, it is asked of the owner, as
    `rules/reading.md` says of any premise not found. An approach with no gain over any other is no option by the same
    rules, and is dropped without asking.
