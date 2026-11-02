@@ -1,14 +1,15 @@
 # Extension: challenging the chain
 
 For an agent that challenges the decisions a solution stands on. A challenge seeks what serves the articles better, by
-their weight: a work would otherwise keep to the route taken before only because it was taken before.
+their weight, such as a way as good on a heavier article and better on a lighter one: a work would otherwise keep to the
+route taken before only because it was taken before.
 
 Given a solution and the decisions it stands on:
 
 - Name the decisions that constrain it most: without each, what would be done instead.
-- For each, say whether revising it would give a result that serves the articles clearly better: that result, what it
-  gains, what it costs, the decisions resting on it that would be derived again among the costs (the check's
-  `--dependents` lists them), and the base the revision would rest on.
+- For each, say whether revising it would give a result that serves the articles better: that result, what it gains,
+  what it costs, the decisions resting on it that would be derived again among the costs (the check's `--dependents`
+  lists them), and the base the revision would rest on.
 - Follow a revision down the decisions resting on it as far as it holds: one that breaks on a record it would have to
   change is reported with that record.
 - Go no higher than the articles: an article in the way is pointed out, not challenged.
