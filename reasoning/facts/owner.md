@@ -1,1 +1,0 @@
-Fact owner-rules-in-context: The owner understands a card by its context: the background of the matter, where the work stands, what the design is, why the card is asked and where it stands in the design; a card read apart from them is not understood.

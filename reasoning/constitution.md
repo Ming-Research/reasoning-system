@@ -64,3 +64,8 @@ decisions; and that its content evolves from one coherent state to the next, its
 contradicting another at any state.
 
 Replaces: C:coherence
+
+## Article 12 (precedence). When articles pull apart
+
+Article 11, which answers for the content's coherence, comes before every other article. No other precedence is set
+among them.
