@@ -32,7 +32,8 @@ what would resolve it.
 
 ## 4. Reviewing again
 
-The review runs once over the whole work. The review again is given the findings and the checks not verified, the
-answer to each and what changed since. It decides each check not verified, passed or a finding; it reviews only the
-changes since that change a decision or rewrite logic or behaviour beyond a local repair, and what each touched; it
-checks that every other change, listed by its author, is of neither kind; and it raises nothing outside these.
+The review runs once over the whole work. The review again is given the findings and the checks not verified, the answer
+to each and what changed since. It decides each check not verified, passed or a finding; it reviews only the changes
+since that change a decision or rewrite logic or behaviour beyond a local repair, and what each touched; it checks that
+every other change, listed by its author, is of neither kind; and it raises nothing outside these as findings: what it
+notices outside them it lists, for the author to answer.

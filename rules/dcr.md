@@ -44,4 +44,5 @@ resolve it.
 The review runs once over the whole change. The review again is given the findings, the answer to each and what changed
 since. It reviews only the changes since that change a choice or rewrite a reason beyond a local repair, what each
 touched, and the decisions resting on each choice changed; it checks that every other change, listed by its author, is
-of neither kind; and it raises nothing outside these.
+of neither kind; and it raises nothing outside these as findings: what it notices outside them it lists, for the author
+to answer.
