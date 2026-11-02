@@ -72,7 +72,7 @@ Options:
 
 Decision broken-kept: Is a revision explored and found to break kept?
 
-Chosen: kept, because a path explored and abandoned with no record is explored again (F:paths-explored-again), and the record it broke on says when it might hold (C:derive-and-evolve); dropped keeps the decisions shorter (C:agents-read), but coherence comes first (C:precedence).
+Chosen: kept, because a path explored and abandoned with no record is explored again {F:paths-explored-again: a path explored and abandoned with no record kept is explored again by the next one who meets the question, as seen in this system's use up to 2026-11-01}, and the record it broke on says when it might hold (C:derive-and-evolve); dropped keeps the decisions shorter (C:agents-read), but coherence comes first (C:precedence).
 
 Options:
 - kept: with the decision it would have revised, naming the record it broke on
