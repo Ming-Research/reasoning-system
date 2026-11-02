@@ -145,17 +145,6 @@ class Record:
         texts = [text for _number, text, _match in self.items.get("Options", ())]
         return texts + [text for lines in self.over.values() for _number, text, _match in lines]
 
-    def option_lines(self, whats=None):
-        """The Options as compared with a base, each option followed by its '+' lines; what an option is is taken
-        from whats where it gives one, since that is compared on its own."""
-        lines = []
-        for number, text, match in self.items.get("Options", ()):
-            if match and whats and match[1] in whats:
-                text = f"- {match[1]}: {whats[match[1]]}"
-            lines.append(plain(text))
-            lines += [plain(over) for _number, over, _match in self.over.get(number, ())]
-        return lines
-
     def lost_with(self):
         """What a decision is lost with, when the last item of its Lost is a 'with'."""
         items = self.items.get("Lost")
@@ -163,11 +152,17 @@ class Record:
             return items[-1][2][2]
         return None
 
+    def lost_unread(self):
+        """Whether the last item of a decision's Lost does not read as its form, so that it is not known to be lost."""
+        items = self.items.get("Lost")
+        return bool(items) and items[-1][2] is None
+
 
 class Records:
     def __init__(self):
         self.errors = []
         self.records = {}  # ref -> Record
+        self.doubles = []  # records whose id another record of the kind already has
         self.resting = None  # record -> the decisions resting on it directly
 
     def err(self, where, message):
@@ -228,6 +223,9 @@ class Records:
                 match = ARTICLE.match(line)
                 if not match:
                     self.err(loc, "an article is headed '## Article <n> (<id>). <title>'")
+                    number_only = re.match(r"^## Article (\d+)\b", line)
+                    if number_only:
+                        expected = int(number_only[1]) + 1
                     continue
                 if int(match[1]) != expected:
                     self.err(loc, f"article {match[1]} where article {expected} comes next")
@@ -268,8 +266,12 @@ class Records:
         prev = "start"
         in_list = None
         fence = None  # the line that opened a data block not yet closed
+        skipping = False  # after a head that does not read as one, until the next
         for number, line in enumerate(text.split("\n"), 1):
             loc = f"{path}:{number}"
+            if skipping and not head.match(line):
+                continue
+            skipping = False
             if fence is not None:
                 current.lines.append(line)
                 if line == FENCE:
@@ -279,7 +281,7 @@ class Records:
                     current.data.append(line)
                 continue
             match = head.match(line)
-            if current is not None and not match:
+            if current is not None and not match and not line.startswith(word + " "):
                 current.lines.append(line)
             if not line.strip():
                 prev = "blank"
@@ -301,8 +303,14 @@ class Records:
                 in_list = None
                 continue
             if line.startswith(word + " "):
-                self.err(loc, f"a record opens {OPENINGS[kind]}, its id lowercase words joined by hyphens")
-                prev = "other"
+                self.err(loc, f"a record opens {OPENINGS[kind]}, its id lowercase words joined by hyphens; its lines "
+                              "are not read")
+                self.close(current)
+                current = None
+                skipping = True
+                count += 1
+                prev = "blank"
+                in_list = None
                 continue
             if kind == "F" and line.startswith(FENCE):
                 prev_was = prev
@@ -310,9 +318,9 @@ class Records:
                 in_list = None
                 if current is None:
                     self.err(loc, "a data block before the first record")
-                elif line != FENCE:
-                    self.err(loc, "a data block is fenced by a line '```' alone, before it and after it")
                 else:
+                    if line != FENCE:
+                        self.err(loc, "a data block is fenced by a line '```' alone, before it and after it")
                     if prev_was != "blank":
                         self.err(loc, "a data block must be separated from the line before it by a blank line")
                     if current.data is not None:
@@ -388,6 +396,7 @@ class Records:
         if record.ref in self.records:
             first = self.records[record.ref]
             self.err(f"{path}:{number}", f"{record.ref} is also at {first.path}:{first.start}; an id is unique in its kind")
+            self.doubles.append(record)
             return record
         self.records[record.ref] = record
         return record
@@ -463,7 +472,7 @@ class Records:
                 continue
             option = match[1]
             lines = record.over.get(number, ())
-            if len(options) == 1:
+            if len(record.items.get("Options", ())) == 1:
                 for line, _text, _found in lines:
                     self.err(f"{record.path}:{line}", f"a '+' line under the one option of {ref}; a decision left with "
                                                       "one option gives it none")
@@ -485,7 +494,7 @@ class Records:
                 self.err(f"{record.path}:{number}", f"the '+' lines of the option '{option}' of {ref} do not name "
                                                     f"{missing}; with two options or more, each option's '+' lines "
                                                     "name every other")
-        if len(options) == 1 and not record.items.get("Replaced"):
+        if len(record.items.get("Options", ())) == 1 and not record.items.get("Replaced"):
             self.err(f"{record.path}:{record.start}", f"{ref} has one option and no 'Replaced'; only a revision leaves "
                                                       "a decision with one, and a decision added weighs two or more")
         return options
@@ -521,14 +530,14 @@ class Records:
             loc = f"{record.path}:{number}"
             for span in CODE_SPAN.finditer(line):
                 self.err(loc, f"a code span, {span[0]}; a record names no code, files or paths")
-            for token in line.split():
+            for token in CODE_SPAN.sub(" ", line).split():
                 if is_path(token):
                     self.err(loc, f"'{token}' names a path or a file; a record names none")
 
     # ---- the whole -------------------------------------------------------------
 
     def check_whole(self):
-        for record in self.records.values():
+        for record in list(self.records.values()) + self.doubles:
             if record.inline:
                 continue
             for number, line in record.numbered():
@@ -619,7 +628,7 @@ class Records:
                 replaced.setdefault(record.fields["Replaces"][1], ref)
         for ref in self.decisions():
             record = self.records[ref]
-            if record.lost_with():
+            if record.lost_with() or record.lost_unread():
                 continue
             where = f"{record.path}:{record.start}"
             for premise in self.premises(ref):
@@ -683,8 +692,22 @@ class Records:
         ref = now.ref
 
         def recite(text):
-            """Text with each article replaced since the base read as the article replacing it."""
-            return REF.sub(lambda match: recited.get(match[0], match[0]), plain(text))
+            """Text with each article replaced since the base read as the article now replacing it."""
+            def latest(ref):
+                seen = set()
+                while ref in recited and ref not in seen:
+                    seen.add(ref)
+                    ref = recited[ref]
+                return ref
+            return REF.sub(lambda match: latest(match[0]), plain(text)).rstrip(".")
+
+        def weighed(record):
+            """The Options as compared with a base: each option's '+' lines, in any order, by its id."""
+            found = {}
+            for number, text, match in record.items.get("Options", ()):
+                key = match[1] if match else text
+                found[key] = sorted(recite(over) for _line, over, _match in record.over.get(number, ()))
+            return found
 
         if plain(now.question) != plain(then.question):
             self.err(f"{now.path}:{now.start}", f"the question of {ref} changed since the base; it never changes")
@@ -699,22 +722,23 @@ class Records:
                 self.err(f"{now.path}:{line}", f"the {name} items of {ref} at the base changed, moved or went; "
                                                f"{name} only grows, at its end")
         revised = now.items.get("Replaced", [])[len(then.items.get("Replaced", ())):]
-        was = plain(then.value("Chosen"))
-        chosen = plain(now.value("Chosen"))
-        if was and chosen != was and recite(chosen) != recite(was):
-            kept = [plain(match[3]).rstrip(".") for _number, _text, match in revised if match]
-            if was.rstrip(".") not in kept:
-                line = now.fields["Chosen"][0] if "Chosen" in now.fields else now.start
-                self.err(f"{now.path}:{line}", f"the Chosen of {ref} changed since the base, but no new Replaced item "
-                                               "keeps whole the one it held there; only citing an article in place of "
-                                               "the one it replaced needs none")
+        was = then.value("Chosen")
+        line = now.fields["Chosen"][0] if "Chosen" in now.fields else now.start
+        if was and revised:
+            first = revised[0][2]
+            if first and recite(first[3]) != recite(was):
+                self.err(f"{now.path}:{revised[0][0]}", f"the first new Replaced item of {ref} keeps a Chosen other "
+                                                        "than the one it held at the base; it keeps that one whole")
+        elif was and recite(now.value("Chosen")) != recite(was):
+            self.err(f"{now.path}:{line}", f"the Chosen of {ref} changed since the base, but no new Replaced item "
+                                           "keeps whole the one it held there; only citing an article in place of the "
+                                           "one it replaced needs none")
         whats = then.options()
         for number, _text, match in now.items.get("Options", ()):
-            if match and match[1] in whats and match[2] != whats[match[1]]:
+            if match and match[1] in whats and recite(match[2]) != recite(whats[match[1]]):
                 self.err(f"{now.path}:{number}", f"what the option '{match[1]}' of {ref} is changed since the base; "
                                                  "what an option is never changes")
-        if not revised and [recite(text) for text in now.option_lines(whats)] != \
-                [recite(text) for text in then.option_lines()]:
+        if not revised and weighed(now) != weighed(then):
             line = now.fields["Options"][0] if "Options" in now.fields else now.start
             self.err(f"{now.path}:{line}", f"the Options of {ref} changed since the base with no new Replaced item; "
                                            "an option or a '+' line is added, changed or removed only in a revision")
@@ -756,6 +780,7 @@ def check_files(files, base=None, ready=False, ascii_only=False, dependents=()):
     records.check_whole()
     listed = []
     for ref in dependents:
+        ref = ref.split("/")[0]
         if ref not in records.records:
             records.err("--dependents", f"{ref} is no record")
             continue

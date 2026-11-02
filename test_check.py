@@ -181,6 +181,10 @@ class FilesTests(Case):
                 self.replace(old, new, "constitution.md")
                 self.assert_fails(needle)
         self.setUp()
+        self.texts["constitution.md"] += "\n## Article 3 (Wrong). A third\n\nText.\n\n## Article 4 (fourth). A fourth\n\nText.\n"
+        errors, _listed, _report = self.run_check()
+        self.assertFalse(any("article 4 where" in error for error in errors), errors)
+        self.setUp()
         self.texts["constitution.md"] = "# Constitution\n"
         self.assert_fails("the constitution has no article")
         self.setUp()
@@ -318,6 +322,32 @@ class DecisionTests(Case):
         self.assert_fails("D:ties cites no article and no decision")
 
 
+    def test_a_head_that_does_not_read_gives_its_lines_to_no_record(self):
+        self.replace("Decision queue:", "Decision Queue:")
+        errors, _listed, _report = self.run_check()
+        self.assertIn("a record opens 'Decision <id>: <question>'", errors[0])
+        for wrong in ("a second 'Chosen'", "form a cycle", "do not name"):
+            self.assertFalse(any(wrong in error for error in errors), errors)
+
+    def test_an_option_that_does_not_read_still_counts(self):
+        self.replace("- several: run", "- Several: run")
+        errors, _listed, _report = self.run_check()
+        self.assertTrue(any("an Options item reads" in error for error in errors), errors)
+        self.assertFalse(any("one option" in error for error in errors), errors)
+
+    def test_a_last_lost_item_that_does_not_read(self):
+        self.revise()
+        self.replace("- with D:queue/first-come", "- with D:queue/first-come.")
+        errors, _listed, _report = self.run_check()
+        self.assertTrue(any("a Lost item reads" in error for error in errors), errors)
+        self.assertFalse(any("is in force" in error for error in errors), errors)
+
+    def test_a_double_id_is_still_checked(self):
+        self.texts[JOBS] += "\n" + TIES.replace("(D:queue)", "(D:queue, C:nothing)")
+        self.assert_fails("D:ties is also at")
+        self.assert_fails("C:nothing resolves to no article")
+
+
 class FactTests(Case):
     def test_inline_facts(self):
         self.replace("{F:bursts: jobs arrive in bursts}", "{F:bursts}")
@@ -333,6 +363,12 @@ class FactTests(Case):
         self.replace("(F:speed)", "(F:speed, F:runs)")
         _listed, report = self.assert_passes()
         self.assertIn("assumed F:runs", "\n".join(report))
+        self.setUp()
+        self.texts["facts/machine.md"] += DATA_FACT.replace("\n```\njob", "\n```text\njob")
+        self.replace("(F:speed)", "(F:speed, F:runs)")
+        errors, _listed, _report = self.run_check()
+        self.assertEqual(len(errors), 1, errors)
+        self.assertIn("a data block is fenced by a line '```' alone", errors[0])
         cases = {
             "a data block that is never closed": ("b    11\n```\n", "b    11\n"),
             "'Follows' names the one fact": ("Follows: F:speed", "Follows: speed"),
@@ -386,6 +422,8 @@ class ReferenceTests(Case):
         self.assertIn("dependents of C:rule: 0", listed)
         self.assertIn("dependents of D:serial: 2", listed)
         self.assert_fails("C:nothing is no record", dependents=("C:nothing",))
+        listed, _report = self.assert_passes(dependents=("D:serial/one-at-a-time",))
+        self.assertIn("dependents of D:serial: 2", listed)
 
     def test_a_decision_in_force_on_what_binds_nothing(self):
         self.texts["constitution.md"] += TURNAROUND
@@ -421,6 +459,10 @@ class WordsTests(Case):
         self.setUp()
         self.texts["facts/machine.md"] = FACTS.replace("measured", "measured with `time`")
         self.assert_fails("a code span, `time`")
+        self.setUp()
+        self.replace("the project does one thing", "the step in `flow.json` runs")
+        errors, _listed, _report = self.run_check()
+        self.assertEqual(len(errors), 1, errors)
 
     def test_words_that_are_no_path(self):
         self.replace("the project does one thing", "the project does one thing, as https://example.org/a/b.html "
@@ -479,7 +521,8 @@ class ReadyTests(Case):
         base = self.files()
         self.revise()
         self.replace("{F:bursts: jobs arrive in bursts}; replaced", "{F:bursts: jobs arrive in bursts}, mostly; replaced")
-        self.assert_fails("no new Replaced item keeps whole the one it held there", **self.ready(base))
+        self.assert_fails("the first new Replaced item of D:queue keeps a Chosen other than the one it held at the base",
+                          **self.ready(base))
         self.setUp()
         self.replace("so several would only wait inside it.", "so several would only queue inside it.")
         self.assert_fails("the Chosen of D:serial changed since the base", **self.ready(base))
@@ -512,6 +555,74 @@ class ReadyTests(Case):
         self.texts[JOBS] += single.replace(", and by size would hide it", "") + "\nReplaced:\n- by-size -> as-run: " \
             "by-size, because it groups (D:ties); replaced because x\n"
         self.assert_fails("D:report is added with one option", **self.ready(base))
+
+
+class GrowthTests(Case):
+    ready = ReadyTests.ready
+
+    def test_nothing_removed(self):
+        base = self.files()
+        for path, old in (("constitution.md", "## Article 2 (rule). A rule\n\nJobs keep the order they came in.\n"),
+                          ("facts/machine.md", FACTS)):
+            with self.subTest(path=path):
+                self.setUp()
+                self.replace(old, "", path)
+                self.assert_fails("stood here at the base and is gone", **self.ready(base))
+
+    def test_options_reordered_or_cited_anew(self):
+        base = self.files()
+        self.replace("- one-at-a-time: run each job alone\n  + over several: no job waits on another inside the machine\n"
+                     "- several: run jobs side by side\n  + over one-at-a-time: they could finish sooner together\n",
+                     "- several: run jobs side by side\n  + over one-at-a-time: they could finish sooner together\n"
+                     "- one-at-a-time: run each job alone\n  + over several: no job waits on another inside the machine\n")
+        self.assert_passes(**self.ready(base))
+        self.setUp()
+        self.replace("- first-come: run jobs in the order they came", "- first-come: run jobs in the order they came (C:rule)")
+        base = self.files()
+        speedy = TURNAROUND.replace("Article 3 (turnaround). Turnaround", "Article 4 (speedy). Speed").replace(
+            "Replaces: C:rule", "Replaces: C:turnaround")
+        self.texts["constitution.md"] += TURNAROUND + speedy
+        self.texts[JOBS] = self.texts[JOBS].replace("C:rule", "C:speedy")
+        self.assert_passes(**self.ready(base))
+
+    def test_options_and_history_change_only_in_a_revision(self):
+        base = self.files()
+        self.replace("  + over one-at-a-time: they could finish sooner together\n",
+                     "  + over one-at-a-time: they could finish sooner together\n- batches: run jobs in batches\n"
+                     "  + over one-at-a-time, several: fewer starts\n")
+        self.replace("  + over several: no job waits", "  + over several, batches: no job waits")
+        self.replace("  + over one-at-a-time: they could", "  + over one-at-a-time, batches: they could")
+        self.assert_fails("the Options of D:serial changed since the base with no new Replaced item", **self.ready(base))
+        serial_chosen = SERIAL.splitlines()[2][len("Chosen: "):]
+        self.texts[JOBS] = self.texts[JOBS].replace(
+            "  + over one-at-a-time, several: fewer starts\n",
+            "  + over one-at-a-time, several: fewer starts\n\nReplaced:\n- one-at-a-time -> one-at-a-time: anything "
+            "at all; replaced because nothing\n", 1)
+        self.assert_fails("a Replaced item of D:serial keeps reads", **self.ready(base))
+        self.texts[JOBS] = self.texts[JOBS].replace("- one-at-a-time -> one-at-a-time: anything at all;",
+                                                    "- one-at-a-time -> one-at-a-time: " + serial_chosen + ";")
+        self.assert_passes(**self.ready(base))
+        self.setUp()
+        self.revise()
+        base = self.files()
+        for old, new, needle in (("- with D:queue/first-come", "- with D:queue/first-come\n- back with D:queue/first-come",
+                                  None),
+                                 ("replaced because C:turnaround replaces C:rule.", "replaced because the rule went.",
+                                  "the Replaced items of D:queue at the base changed")):
+            with self.subTest(new=new):
+                self.setUp()
+                self.revise()
+                self.replace(old, new)
+                if needle is None:
+                    errors, _listed, _report = self.run_check(**self.ready(base))
+                    self.assertFalse(any("Lost items" in error for error in errors), errors)
+                else:
+                    self.assert_fails(needle, **self.ready(base))
+        self.setUp()
+        base = self.files()
+        self.replace("Decision serial: How many jobs run at once?\n", "Decision serial: How many jobs run at once?\n\n"
+                     "Given: C:aim\n")
+        self.assert_fails("the Given of D:serial changed since the base", **self.ready(base))
 
 
 class CommandLineTests(unittest.TestCase):
