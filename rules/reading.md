@@ -14,8 +14,8 @@ The project keeps its records in `reasoning/`:
   not a computation. A gain or a cost that bears on no article, directly or through a decision, shows a gap in the
   constitution: ask the owner to fill it, and weigh it once an article covers it.
 - `derivations/`, **the decisions**: how the project does something. Each answers one question: from its premises,
-  articles, facts and earlier decisions it cites, it weighs every option, each with what it does better and worse than
-  the others, and takes one, saying why each other loses.
+  articles, facts and earlier decisions it cites, it weighs every option, each with what it does better than each other,
+  and takes one, saying why each other loses.
 - `facts/`, **the facts that carry much data**, such as measurements, kept apart so that the decisions resting on them
   stay short, and cited by their ids.
 
