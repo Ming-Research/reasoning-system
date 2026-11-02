@@ -7,8 +7,8 @@ them unsaid. A decision carried out only in part, or over several works, is no d
 ## 1. What to read
 
 - The whole change, what it directly affects, and wherever a choice replaced in the decisions it meets still runs.
-- The decisions on the questions these meet, those the work adds or revises among them, with what each rejected and
-  replaced.
+- The decisions on the questions these meet, those the work adds or revises among them, with the options each weighed
+  and what it replaced.
 
 ## 2. What to check
 

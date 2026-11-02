@@ -4,10 +4,13 @@ For agents that derive decisions and add them to the records or revise them.
 
 ## 1. Deriving a decision
 
-- A decision's question is its head. Its reasons cite each premise: at least one article or earlier decision, which give
-  what matters in the weighing, and the facts it needs. Conclude only what the premises give.
-- Record a decision only for a real choice. Why an option loses is never the choice turned round. An approach explored
-  in earnest is an option, and stays in `Rejected` on the fact its exploration found, though that fact shows it beaten.
+- A decision's question is its head. Its reasons cite each premise where the reasoning bears on it: at least one article
+  or earlier decision, which give what matters in the weighing, and the facts it needs. Conclude only what the premises
+  give. A gain or a cost that bears on no article, directly or through a decision, shows a gap in the constitution: ask
+  the owner.
+- Record a decision only for a real choice, and weigh every option it has. Why an option loses is never the choice
+  turned round. An approach that breaks an article is no option. An approach explored in earnest and found beaten is
+  kept in `Explored`, on the fact its exploration found.
 - Write the choice, the reasons that decide it and the qualifications it needs, in as few words as keep its meaning. A
   reason may be the purpose the choice serves.
 - A record names no paths, no files, modules, functions, types, tables or fields, no ids or numbers of steps or states:
@@ -22,16 +25,16 @@ For agents that derive decisions and add them to the records or revise them.
 
 ## 2. Adding and revising
 
-No article or approach is reworded once recorded. Each addition, and each revision with the decisions it changes, goes
-to the owner as one card, and is recorded once accepted.
+No article is reworded once recorded, and no option of a decision is removed or has what it is reworded. Each addition,
+and each revision with the decisions it changes, goes to the owner as one card, and is recorded once accepted.
 
 - **An addition** answers a question no decision answers, with a real choice. It takes the articles and decisions as
   they stand, changes none of them, and brings the facts its reasons need.
-- **A revision** names the base that changed and derives the question again on it. The choice replaced is kept as
-  replaced, with the reasons it was chosen on and the base it lost on; it is also an option again when it still trades
-  off against the new choice. The options are weighed again against the new choice. When the new base leaves a single
-  option, the decision takes it, and its card shows the derivation rather than a choice. Dropping something the project
-  does is a revision of the decision it stands under, to not doing it.
+- **A revision** names the base that changed and derives the question again on it: the options are weighed again in
+  place, the choice replaced is kept in `Replaced` with the weighing it was chosen on and the base it lost on, and an
+  option the new base beats moves to `Explored` on it. When the new base leaves a single option, the decision takes it,
+  and its card shows the derivation rather than a choice. Dropping something the project does is a revision of the
+  decision it stands under, to not doing it.
 - **Deriving again.** When an article is replaced or a decision revised, derive again every decision resting on it: it
   stands, resting on the new article where one replaced the old; or it is revised in the same card; or, when its
   question arises only under the approach replaced, it is lost with it. Derive again the decisions resting on each one
@@ -71,25 +74,35 @@ Replaces: C:<id>
 ```
 Decision <id>: <the question it answers>
 
-Chosen: <the option taken>, because <why it wins, citing its premises>
+Given: <the decisions, or options of them, and the facts the question itself rests on>
 
-Rejected:
-- <another option>: <what it does better>; rejected because <why that loses on the premises>
+Chosen: <option-id>, because <the weighing>; <the qualifications it needs>
+
+Options:
+- <option-id>: <what it is>
+  + over <option-id>, ...: <what it does better than them>
+  - under <option-id>, ...: <what it does worse than them>
+  loses: <why it loses against the one chosen>
+
+Explored:
+- <option-id>: <what it is>; beaten on <the fact that beats it>
 
 Replaced:
-- <a choice replaced>: chosen because <its reasons>; replaced because <the base that changed>
+- <option-id> -> <option-id>: chosen because <its weighing>; replaced because <the base that changed>
 
 Broke:
 - <a revision explored>: breaks on <the record>
 
 Lost:
-- with D:<id>, <the approach, as that decision's Replaced words it>
-- back with D:<id>, <the approach>
+- with D:<id>/<option-id>
+- back with D:<id>/<option-id>
 ```
 
-`so that <the purpose it serves>` may stand for `because`, in `Chosen` and in `Replaced`. `Rejected` holds the options;
-a decision added has at least one, and one revised may have none left. `Replaced`, `Broke` and `Lost` are history and
-are given only when there is one; a decision whose last item in `Lost` is a `with` binds nothing.
+An option id is lowercase words joined by hyphens naming the approach; `D:<id>/<option-id>` is one option of a decision.
+Every option weighed has at least one `+` and one `-`, and every one but the chosen has `loses`. `so that <the purpose
+it serves>` may stand for `because`. `Given`, `Explored`, `Replaced`, `Broke` and `Lost` are given only when there is
+one, and so are the qualifications. A decision is lost with an option of another when its question arises only under it,
+and back with it when that option is taken up again; one whose last item in `Lost` is a `with` binds nothing.
 
 **A fact.** Declared inline, in a decision's reasons:
 
@@ -113,9 +126,9 @@ Follows: F:<id>
 
 `Fact <id> (assumed):` heads an assumed fact there.
 
-A reference resolves to the one record or declaration with its id. The articles, decisions and facts cited or declared
-in `Chosen` and `Rejected` are the decision's premises, at least one article or decision among those in `Chosen`; a
-reference in `Replaced`, `Broke` or `Lost` is no premise.
+A reference resolves to the one record, declaration or option with its id. The articles, decisions and facts cited or
+declared in `Given`, `Chosen`, `Options` and `Explored` are the decision's premises, at least one article or decision
+among them; a reference in `Replaced`, `Broke` or `Lost` is no premise.
 
 Run the check after every change, and with `--base <the revision before the change> --ready` before the change is
 merged:

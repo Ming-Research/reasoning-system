@@ -13,8 +13,8 @@ The project keeps its records in `reasoning/`:
   by the articles, and where they pull apart, by the precedence it sets among them: a judgment made with common sense,
   not a computation.
 - `derivations/`, **the decisions**: how the project does something. Each answers one question: from its premises,
-  articles, facts and earlier decisions it cites, it takes one option, and names the other options,
-  each with what it does better and why that loses on the premises.
+  articles, facts and earlier decisions it cites, it weighs every option, each with what it does better and worse than
+  the others, and takes one, saying why each other loses.
 - `facts/`, **the facts that carry much data**, such as measurements, kept apart so that the decisions resting on them
   stay short, and cited by their ids.
 
@@ -32,11 +32,11 @@ it, and is never removed or reworded: a later state, or the correction of a mist
 
 ## 2. What is in force
 
-The records only grow, so they keep what no longer binds: an article another has replaced, a choice a decision
-replaced with the decisions lost with it, and the revisions explored that broke. These bind nothing, and each is marked
-so. They are kept to be read: before proposing an approach, read whether a decision rejected it, or a revision like it
-broke, and on what. Taking a rejected approach up again is a revision of the decision that rejected it, naming the base
-that changed since.
+The records only grow, so they keep what no longer binds: an article another has replaced, a choice a decision replaced
+with the decisions lost with it, the approaches explored and found beaten, and the revisions explored that broke. These
+bind nothing, and each is marked so. They are kept to be read: before proposing an approach, read whether a decision
+weighed it and on what it lost, or a revision like it broke. Taking up an option a decision did not choose is a revision
+of that decision, naming the base that changed since.
 
 A fact holds of when it was found. A new decision is derived from the latest fact on its matter; a decision derived from
 an earlier one stands unless the later fact changes it.
