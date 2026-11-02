@@ -6,7 +6,8 @@ For agents that derive decisions and add them to the records or revise them.
 
 - A decision's question is its head. Its reasons cite each premise: at least one article or earlier decision, which give
   what matters in the weighing, and the facts it needs. Conclude only what the premises give.
-- Record a decision only for a real choice. Why an option loses is never the choice turned round.
+- Record a decision only for a real choice. Why an option loses is never the choice turned round. An approach explored
+  in earnest is an option, and stays in `Rejected` on the fact its exploration found, though that fact shows it beaten.
 - Write the choice, the reasons that decide it and the qualifications it needs, in as few words as keep its meaning. A
   reason may be the purpose the choice serves.
 - A record names no paths, no files, modules, functions, types, tables or fields, no ids or numbers of steps or states:

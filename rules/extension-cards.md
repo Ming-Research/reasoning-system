@@ -11,7 +11,6 @@ the background, where the work stands and why this is asked; the text around it 
 - for a revision, the base that changed;
 - every option, each with what it does, what it gives and what it costs, and why it wins or loses on the premises; the
   one recommended;
-- the approaches considered and found to be no option, each with why, in a line;
 - its confidence from 1 to 5, why, and what would overturn it;
 - the records it adds or changes, the decisions a revision changes with it among them, saying what the card says.
 
