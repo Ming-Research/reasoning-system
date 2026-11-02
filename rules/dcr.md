@@ -9,8 +9,8 @@ choice is written in. It judges what the check cannot, and does not check again 
 - Every record it adds or changes, with the premises each cites.
 - Every decision resting on what it changes, as the check's `--dependents` lists them, and, for a new fact that
   follows another, every decision resting on that one.
-- The decisions whose questions the change meets though it does not cite them, with the approaches they weighed, found
-  beaten or replaced, and what broke.
+- The decisions whose questions the change meets though it does not cite them, with the options they weighed, the
+  choices they replaced and what broke.
 
 Say which records you read.
 
@@ -32,7 +32,7 @@ Say which records you read.
    decision a new fact changes that the change leaves alone is a finding.
 7. **The records stay coherent.** A decision that narrows another is a revision of it.
 8. **The card and the records agree.** The records take the option chosen on the card, on the reasons given for it, and
-   say of each option, and of each approach beaten, what the card says.
+   say of each option what the card says.
 
 ## 3. How to report
 

@@ -12,7 +12,6 @@ owner's language and in plain words, each term of the project explained where it
 - for a revision, the choice it replaces and the base that changed;
 - every option, each with what it does, what it gives and costs against the others, what else changes with it, and why
   it wins or loses on the premises; the one recommended;
-- the approaches explored and beaten, each with what beat it;
 - its confidence from 1 to 5, 5 when known facts settle it and 1 when it rests on judgment, why, and what would
   overturn it.
 

@@ -35,10 +35,10 @@ it, and is never removed or reworded: a later state, or the correction of a mist
 ## 2. What is in force
 
 The records only grow, so they keep what no longer binds: an article another has replaced, a choice a decision replaced
-with the decisions lost with it, the approaches found beaten, and the revisions explored that broke. These bind nothing,
-and each is marked so. They are kept to be read: before proposing an approach, read whether a decision weighed it and on
-what it lost, or a revision like it broke. Taking up an approach a decision names but does not choose is a revision of
-that decision, naming the base that changed since.
+with the decisions lost with it, and the revisions explored that broke. These bind nothing, and each is marked so. They
+are kept to be read: before proposing an approach, read whether a decision weighed it and on what it lost, or a revision
+like it broke. Taking up an approach a decision names but does not choose is a revision of that decision, naming the
+base that changed since.
 
 A fact holds of when it was found. A new decision is derived from the latest fact on its matter; a decision derived from
 an earlier one stands unless the later fact changes it.
