@@ -7,26 +7,28 @@ For agents that derive decisions and add them to the records or revise them.
 - A decision's question is its head. Its reasons cite each premise where the reasoning bears on it: at least one article
   or earlier decision, which give what matters in the weighing, and the facts it needs. Conclude only what the premises
   give.
-- Record a decision only for a real choice. Why an option loses is never the choice turned round. An approach researched
-  in earnest is an option, its gains and costs resting on the facts its research found; one only glanced at is none, and
-  is not written.
+- Record a decision only for a real choice. Why an option loses is never the choice turned round. An option's gains rest
+  on facts: an approach researched in earnest has them in what its research found, and is weighed and written, so that
+  it is not researched again; one only glanced at has none to weigh, and is not written.
 - Write the choice, the reasons that decide it and the qualifications it needs, in as few words as keep its meaning. A
   reason may be the purpose the choice serves.
 - A record names no paths, no files, modules, functions, types, tables or fields, no ids or numbers of steps or states:
-  a step is named by what it does. No record only restates an interface or an implementation. A number the project sets
-  is configuration and is not written, unless the number itself was a real choice.
-- No word in a decision or a fact takes its meaning from a conversation, card or work, or from when it was written: no
-  "the new flow", "until now" or "option B", no number that a work, a task or a card goes by.
+  a step is named by what it does. No record only restates an interface or an implementation, since that holds no
+  choice. A number the project sets is configuration and is not written, unless the number itself was a real choice.
+- A record is read long after it is written and is never reworded, so no word in a decision or a fact takes its meaning
+  from a conversation, card or work, or from when it was written, a meaning lost once they are gone: no "until now" or
+  "option B", no number that a work, a task or a card goes by.
 - A fact is declared where it is first stated, and says when it holds, where that matters.
 - Record the reasons the owner gives for a choice as facts, citing the article or decision that makes them matter.
 - A decision whose premises are not found is not recorded: ask the owner for them.
-- How the project's maintainers keep its repository (branches, the limits of a machine) is no decision of the project.
+- How its maintainers keep the project's repository, and the machines they use, is how they work on it, not something
+  the project does, so it is no decision of the project.
 
 ## 2. Adding and revising
 
 No article is reworded once recorded, and no option of a decision has what it is reworded; an option leaves a decision
-only when a revision finds it no longer one. Each addition, and each revision with the decisions it changes, goes to the
-owner as one card, and is recorded once accepted.
+only when a revision finds it no longer one. Each addition, and each revision with every decision it changes, since the
+records stay coherent only with all of them changed, goes to the owner as one card, and is recorded once accepted.
 
 - **An addition** answers a question no decision answers, with a real choice. It takes the articles and decisions as
   they stand, changes none of them, and brings the facts its reasons need.
@@ -47,7 +49,8 @@ owner as one card, and is recorded once accepted.
 - **What is kept.** A decision lost with an approach stays as it was, marked as lost with it, and so does every decision
   lost through it. Taking the approach up again brings them back to be derived again, each marked as back with it. A
   revision explored and found to break on a record not resting on the decision it revises is kept with that decision,
-  naming the record, and recorded with the card that explored it. Attempts made while coding are not kept.
+  naming the record, and recorded with the card that explored it. Attempts made while coding are not kept: they try ways
+  of building what a decision says, not answers to its question.
 - **Follows and replaces.** A new fact names the fact it follows, and an article the owner adds names the article it
   replaces.
 

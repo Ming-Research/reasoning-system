@@ -10,9 +10,11 @@ what was decided and rejected, the code for what is built.
 The project keeps its records in `reasoning/`:
 
 - `constitution.md`, **the axioms**: the owner's, and only the owner sets them. Every choice between options is weighed
-  by the articles, and where they pull apart, by the precedence it sets among them: a judgment made with common sense,
-  not a computation. A gain or a cost that bears on no article, directly or through a decision, shows a gap in the
-  constitution: ask the owner to fill it, and weigh it once an article covers it.
+  by the articles, since only they, directly or through a decision, make a gain or a cost matter; where two pull apart,
+  by the precedence the constitution sets between them, itself an axiom. An article is written in words, not as a
+  measure, so how far an option serves one is judged, not computed, and the reasons state the judgment so that it can be
+  followed and checked. A gain or a cost that bears on no article cannot be weighed: that it was found to matter shows
+  the axioms lack something, so ask the owner to fill the gap, and weigh it once an article covers it.
 - `derivations/`, **the decisions**: how the project does something. Each answers one question: from its premises,
   articles, facts and earlier decisions it cites, it weighs every option, each with what it does better than each other,
   and takes one, saying why each other loses.
@@ -20,8 +22,10 @@ The project keeps its records in `reasoning/`:
   stay short, and cited by their ids.
 
 No decision contradicts another, an article, or a fact it rests on. The records name nothing that exists only in one
-implementation, and the project's code, tests and configuration do not cite them; commit messages, pull requests and
-cards may.
+implementation, since such names change with work that revises no decision, and a record, never reworded, would be left
+false. The project's code, tests and configuration do not cite the records either, since a revision finds what rests on
+a decision only within the records, and a citation in code would go on claiming a choice after it was replaced; commit
+messages, pull requests and cards may, being read as of when they were written.
 
 A reference reads `C:<id>` (an article), `F:<id>` (a fact), `D:<id>` (a decision) or `D:<id>/<option-id>` (an approach a
 decision names).
@@ -29,8 +33,10 @@ decision names).
 **Facts** are what is or was the case, as of when it was found: about the world, the tools, the project as it runs, or
 the owner. Each is declared once, most inline among a decision's reasons as `{F:<id>: ...}`, one that carries much data
 in `facts/`, and is cited elsewhere as `F:<id>`. A fact is known or assumed: an assumed fact takes part in deriving like
-any other, its correctness assumed rather than known, and is marked so. A fact is recorded only when a decision rests on
-it, and is never removed or reworded: a later state, or the correction of a mistake, is a new fact beside it.
+any other, since a decision is often due before its facts can be established, and is marked so, since a decision holds
+only as firmly as what it rests on and the mark shows which decisions a later finding may revise. A fact is recorded
+only when a decision rests on it, and is never removed or reworded: a later state, or the correction of a mistake, is a
+new fact beside it.
 
 ## 2. What is in force
 
@@ -46,7 +52,8 @@ an earlier one stands unless the later fact changes it.
 A decision stands until it is revised, and only a change to one of its bases can revise it: an article replaced, a new
 fact (what the decision was found to have missed, or the need a work brings, among them), or a decision it rests on
 revised. Whoever finds such a change, or meets a real choice no decision makes, raises it to the owner with what was
-found, naming the base where there is one, and does not settle it alone.
+found, naming the base where there is one, and does not settle it alone. The articles are the owner's and weighing by
+them is a judgment, so the owner's judgment is the one the records take.
 
 ## 3. What a real choice is
 

@@ -24,6 +24,8 @@ For whoever builds a project's records from nothing, or rebuilds them from recor
    than padding, whether an approach was researched in earnest, why the choice fell as it did: where neither the old
    record nor what the work left behind (its discussions, commits and data) shows it, it is asked of the owner, as
    `rules/reading.md` says of any premise not found. An approach with no gain over any other is no option by the same
-   rules, and is dropped without asking.
-4. **In batches.** The rebuild goes concept by concept, a decision that frames others before them, each batch passing
-   the check and the review before it goes to the owner.
+   rules, and is dropped without asking, since that shows on the record itself, while whether a gain is outweighed is a
+   weighing that needs premises the record may lack.
+4. **Concept by concept**, since the decisions on one concept meet the same questions and rest on one another, and the
+   review judges their coherence together; a decision that frames others before them; each change passing the check and
+   the review before it goes to the owner, as every change does.

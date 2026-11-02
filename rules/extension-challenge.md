@@ -16,5 +16,6 @@ Given a solution:
   on the decision revised.
 - An article in the way, or the precedence among the articles, is pointed out, not challenged.
 
-The challenge is open: try what you will, deriving by the same first principles, and report what was tried and where
-it led.
+The challenge looks for what the records do not lead to, since reasoning from them finds only what their decisions leave
+open; so no route is laid down for it: try what you will, deriving by the same first principles, so that what it finds
+can be followed and checked, and report what was tried and where it led, so that a path that broke is not tried again.
