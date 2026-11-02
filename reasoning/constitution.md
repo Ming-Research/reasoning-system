@@ -40,3 +40,27 @@ Whatever is part of the system serves its coherence; what does not is not part o
 
 Keeping a project's work in line with its decisions, so that the work does what they decide and decides nothing they do
 not, and the way a revision is put to the owner and ruled, are extensions of the system, not part of it.
+
+## Article 9 (facts-as-found). What it does not answer for
+
+It does not answer for experiments, for producing data, or for where facts come from or whether they hold: those
+belong to the project. A fact enters as given, as of when it was found, and only when a decision rests on it. A later
+state or a correction enters as a new fact beside it, and the decisions resting on the earlier one are weighed against
+the new.
+
+Replaces: C:facts-given
+
+## Article 10 (extensions). Its extensions
+
+Keeping a project's work in line with its decisions, putting an addition or a revision to the owner and ruling it, and
+challenging the decisions a solution stands on are extensions of the system, not part of it.
+
+Replaces: C:extension
+
+## Article 11 (derive-and-evolve). What the system answers for
+
+It answers for two things: that every decision is derived rigorously from the axioms, the facts it cites and earlier
+decisions; and that its content evolves from one coherent state to the next, its information only growing, no decision
+contradicting another at any state.
+
+Replaces: C:coherence
