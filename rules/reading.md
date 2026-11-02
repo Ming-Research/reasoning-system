@@ -10,7 +10,8 @@ what was decided and rejected, the code for what is built.
 The project keeps its records in `reasoning/`:
 
 - `constitution.md`, **the axioms**: the owner's, and only the owner sets them. Every choice between options is weighed
-  by the articles, and where they pull apart, by the precedence it sets among them.
+  by the articles, and where they pull apart, by the precedence it sets among them: a judgment made with common sense,
+  not a computation.
 - `derivations/`, **the decisions**: how the project does something. Each answers one question: from its premises,
   articles, facts and earlier decisions it cites, it takes one option, and names the other options,
   each with what it does better and why that loses on the premises.
