@@ -1,8 +1,8 @@
 # Extension: challenging the chain
 
 For an agent that challenges the decisions a solution stands on. A challenge seeks what serves the articles better, by
-their weight, such as a way as good on a heavier article and better on a lighter one: a work would otherwise keep to the
-route taken before only because it was taken before.
+their precedence, such as a way as good on an article that comes first and better on one after it: a work would
+otherwise keep to the route taken before only because it was taken before.
 
 Given a solution and the decisions it stands on:
 
