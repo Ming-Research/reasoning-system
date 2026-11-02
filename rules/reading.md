@@ -45,12 +45,27 @@ an earlier one stands unless the later fact changes it.
 
 A decision stands until it is revised, and only a change to one of its bases can revise it: an article replaced, a new
 fact (what the decision was found to have missed, or the need a work brings, among them), or a decision it rests on
-revised. Whoever finds such a change, or meets a costly choice no decision makes, raises it to the owner with what was
-found, naming the base where there is one, and does not settle it alone.
+revised. Whoever finds such a change, or meets a decision (section 3) no record makes, raises it to the owner with what
+was found, naming the base where there is one, and does not settle it alone.
 
 ## 3. What a decision is
 
-A decision is a choice that is both real and costly to reverse.
+A decision is a real choice the owner rules. A real choice is one when it is any of these:
+
+- **A contract.** Taking the other option later would break, or force rework on, what others have built on it: the
+  programs, users or projects that rely on what the project offers, data kept or published, a format or a protocol,
+  and the project's foundation, its language, runtime and main dependencies. Judge it in the direction the change would
+  go: lifting a restriction breaks nothing, while narrowing what was allowed may.
+- **A trade.** Its options trade one article against another, or against a cost the project states, and no rule or
+  measure set before settles it.
+- **A scope.** It sets what the project builds and in what order, or the bars its work is judged by: its gates, budgets
+  and criteria.
+
+A choice that is none of these is made where it lives, in the rules, the code or its documents, and changed there,
+without a record, a card or a review of the records: one option better on every count, as a measurement may show; a
+choice the articles leave a single option in; one that applies a rule already set; a parameter; a structure nothing
+outside its code relies on; how something is presented to its users. That one option is better on every count is its
+author's claim: where taking the other later would mean rework across more than one component, the review checks it.
 
 A choice is real, wherever one is spoken of, only when it has options that trade off against one another: approaches
 none of which another beats on every count or by an overwhelming balance, so that each is better than each other in
@@ -58,11 +73,6 @@ something and worse in something else. An approach another beats so, or one that
 serving an article less than another option does is a cost. With one option left there is no choice. Whether a choice
 seems obvious, or fits an article or a fact, does not decide whether it is one; weighing the options against one another
 on the premises does.
-
-A choice is costly to reverse when much comes to be built on it, code, data, other decisions or what others rely on, or
-when choosing wrong costs much. Ask: had the other option been taken, and found wrong some months later, how much would
-have to be redone? If no more than a rule's text, a function or a page, the choice is made where it lives, in the
-rules, the code or its documents, and changed there, without a record, a card or a review of the records.
 
 ## 4. Words are evidence, not reasons
 

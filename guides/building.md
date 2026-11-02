@@ -8,8 +8,8 @@ For whoever builds a project's records from nothing, or rebuilds them from recor
 1. **The constitution first.** Every decision rests on an article, directly or through other decisions, so none can be
    derived before the articles and their precedence are set.
 2. **The questions.** Each decision answers one question the project meets, so the work starts by listing the choices
-   the project has made or must make that are real and costly to reverse, from its code, its documents and its owner,
-   each as a question. The rest are made where they live.
+   the project has made or must make that are decisions by `rules/reading.md` section 3, contracts, trades and
+   scopes, from its code, its documents and its owner, each as a question. The rest are made where they live.
 3. **In order.** A question that arises only under an option of another decision names it in `Given`, so the decision
    that frames it is derived first.
 4. **Each decision** is then derived as `rules/writing.md` says, and put to the owner.

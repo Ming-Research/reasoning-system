@@ -6,13 +6,13 @@ only growing.
 
 ## Derivation
 
-A decision answers one question. It weighs the options that answer it, each with what it does better than each other,
-by the articles of the project's constitution and, where they pull apart, by the precedence the constitution sets; the
+A decision answers one question. It weighs the options that answer it, each with what it does better than each other, by
+the articles of the project's constitution and, where they pull apart, by the precedence the constitution sets; the
 weighing is a judgment, stated in its reasons. It takes one option and says why each other loses. Its premises are the
-articles, facts and earlier decisions it cites, an article or a decision among them. Only a choice both real and costly
-to reverse is a decision: options that trade off, each better than each other in something, and much built on the one
-taken, or much lost by taking the wrong one. A choice cheap to change is made where it lives, in the rules, the code or
-its documents, and is not recorded. No decision contradicts another, an article, or a fact it rests on.
+articles, facts and earlier decisions it cites, an article or a decision among them. Only a choice the owner must rule
+is a decision: a real one, options that trade off, each better than each other in something, which is a contract others
+build on, a trade between articles that no rule or measure settles, or a scope or bar the work is judged by. Any other
+choice is made where it lives and is not recorded. No decision contradicts another, an article, or a fact it rests on.
 
 ## Evolution
 

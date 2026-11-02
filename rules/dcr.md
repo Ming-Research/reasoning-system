@@ -22,8 +22,8 @@ Say which records you read.
 
 ## 2. What to check
 
-1. **Each choice made is real and costly to reverse**, and no option that could win is missing. A choice cheap to
-   change has no place in the records.
+1. **Each choice made is a decision** (reading, section 3), a contract, a trade or a scope, and no option that could
+   win is missing. A choice that is none of these has no place in the records.
 2. **Each reason is a derivation.** One that shows only that the choice fits an article or a fact, not why each other
    option loses, is not; nor is one resting on a gain or a cost no article bears on.
 3. **What the choice rests on holds.** A premise the reasoning needs that is neither cited nor declared, or that a

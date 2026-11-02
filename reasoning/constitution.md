@@ -87,3 +87,13 @@ Replaces: C:extensions
 The decisions the system keeps are choices costly to reverse: much is built on them, or choosing wrong costs much. A
 choice cheap to change is made where it lives, in the rules, the code or its documents, and changed there; it is not
 recorded.
+
+## Article 16 (decisions-ruled). What it records
+
+The decisions the system keeps are the choices the owner rules: a choice whose reversal would break, or force rework on,
+what others build on, its foundation among them; a choice trading one article against another, or against a stated
+cost, that no rule or measure already set settles; and a choice of what the project builds, in what order, and the
+bars its work is judged by. A choice one option wins on every count, one the articles leave a single option in, or one
+that applies a rule already set, is made where it lives and changed there; it is not recorded.
+
+Replaces: C:costly-choices

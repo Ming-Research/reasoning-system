@@ -14,9 +14,10 @@ them unsaid. A decision carried out only in part, or over several works, is no d
 
 For each change in the work:
 
-1. **Nothing beyond the decisions.** Each choice it makes that is real and costly to reverse, such as whether the
-   project does something at all, is governed by a decision: name the decision. One none governs is a finding, a
-   missing addition. A choice cheap to change needs none.
+1. **Nothing beyond the decisions.** Each choice it makes that is a decision (reading, section 3), such as whether the
+   project does something at all, is governed by a recorded one: name it. One none governs is a finding, a missing
+   addition. A choice that is none needs none; where the work claims one option better on every count and taking the
+   other later would mean rework across more than one component, check the claim.
 2. **Nothing otherwise.** What the change has the project do under a decision is as the decision says, or as a revision
    in the work says, even while a part is left for later. One that differs is a finding, but for a replaced choice still
    running, or built on until its successor is ready, which the next check takes.

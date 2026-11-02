@@ -7,8 +7,8 @@ For agents that derive decisions and add them to the records or revise them.
 - A decision's question is its head. Its reasons cite each premise where the reasoning bears on it: at least one article
   or earlier decision, which give what matters in the weighing, and the facts it needs. Conclude only what the premises
   give.
-- Record a decision only for a choice real and costly to reverse (reading, section 3). Why an option loses is never
-  the choice turned round. An approach is an option when what it does better than each other option can be stated, on
+- Record a decision only for a choice reading section 3 makes one. Why an option loses is never the choice turned
+  round. An approach is an option when what it does better than each other option can be stated, on
   facts known or assumed or on what it is; one for which nothing can be stated is none, and is not written. An approach
   researched for a gain assumed, and found not to have it, stays an option: its gain keeps the assumed fact, the fact
   the research found following it, and the weighing says it lost on that.
@@ -17,7 +17,7 @@ For agents that derive decisions and add them to the records or revise them.
   rests on it and cited by the others.
 - A record names no paths, no files, modules, functions, types, tables or fields, no ids or numbers of steps or states:
   a step is named by what it does. No record only restates an interface or an implementation. A number the project sets
-  is configuration and is not written, unless the number itself was a choice costly to reverse.
+  is configuration and is not written, unless the number itself is a decision, as a bar the work is judged by.
 - No word in a decision or a fact takes its meaning from a conversation, card or work, or from when it was written: no
   "the new flow", "until now" or "option B", no number that a work, a task or a card goes by.
 - A fact is declared where it is first stated, and says when it holds, where that matters.
@@ -32,8 +32,8 @@ No article is reworded once recorded, and no option of a decision has what it is
 only when a revision finds it no longer one. Each addition, and each revision with the decisions it changes, goes to the
 owner as one card, and is recorded once accepted.
 
-- **An addition** answers a question no decision answers, with a choice real and costly to reverse. It takes the
-  articles and decisions as they stand, changes none of them, and brings the facts its reasons need.
+- **An addition** answers a question no decision answers, with a choice that is a decision (reading, section 3). It
+  takes the articles and decisions as they stand, changes none of them, and brings the facts its reasons need.
 - **A revision** names the base that changed and derives the question again on it: the options are weighed again in
   place, the `Chosen` replaced is kept whole in `Replaced` with the base it lost on, the choice replaced stays an option
   while it still trades off, and an option the new base leaves with no gain leaves the decision. A change that keeps the
