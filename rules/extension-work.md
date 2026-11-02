@@ -18,11 +18,11 @@ For each change in the work:
    governed by a decision: name the decision. One none governs is a finding, a missing addition.
 2. **Nothing otherwise.** What the change has the project do under a decision is as the decision says, or as a revision
    in the work says, even while a part is left for later. One that differs is a finding, but for a replaced choice still
-   running, which the next check takes.
-3. **Nothing dropped alone.** For what it deletes, and wherever a replaced choice still runs, name the decisions
-   touched. What they say no longer carried out, or a replaced choice still running, is a finding unless a revision in
-   the work drops it, or the work says, where later work will find it, such as in a comment or a document, what remains
-   to do to carry them out.
+   running, or built on until its successor is ready, which the next check takes.
+3. **Nothing dropped alone.** For what it deletes, and wherever a replaced choice still runs or is built on, name the
+   decisions touched. What they say no longer carried out, or a replaced choice still running or built on, is a finding
+   unless a revision in the work drops it, or the work makes plain, where later work will find it, such as in a comment
+   or a document, that it is for now, and what remains to do to carry the decisions out.
 
 ## 3. How to report
 
