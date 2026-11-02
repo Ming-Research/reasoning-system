@@ -11,7 +11,8 @@ The project keeps its records in `reasoning/`:
 
 - `constitution.md`, **the axioms**: the owner's, and only the owner sets them. Every choice between options is weighed
   by the articles, and where they pull apart, by the precedence it sets among them: a judgment made with common sense,
-  not a computation.
+  not a computation. A gain or a cost that bears on no article, directly or through a decision, shows a gap in the
+  constitution: ask the owner to fill it, and weigh it once an article covers it.
 - `derivations/`, **the decisions**: how the project does something. Each answers one question: from its premises,
   articles, facts and earlier decisions it cites, it weighs every option, each with what it does better and worse than
   the others, and takes one, saying why each other loses.
@@ -22,7 +23,8 @@ No decision contradicts another, an article, or a fact it rests on. The records 
 implementation, and the project's code, tests and configuration do not cite them; commit messages, pull requests and
 cards may.
 
-A reference reads `C:<id>` (an article), `F:<id>` (a fact) or `D:<id>` (a decision).
+A reference reads `C:<id>` (an article), `F:<id>` (a fact), `D:<id>` (a decision) or `D:<id>/<option-id>` (an approach a
+decision names).
 
 **Facts** are what is or was the case, as of when it was found: about the world, the tools, the project as it runs, or
 the owner. Each is declared once, most inline among a decision's reasons as `{F:<id>: ...}`, one that carries much data
@@ -33,10 +35,10 @@ it, and is never removed or reworded: a later state, or the correction of a mist
 ## 2. What is in force
 
 The records only grow, so they keep what no longer binds: an article another has replaced, a choice a decision replaced
-with the decisions lost with it, the approaches explored and found beaten, and the revisions explored that broke. These
-bind nothing, and each is marked so. They are kept to be read: before proposing an approach, read whether a decision
-weighed it and on what it lost, or a revision like it broke. Taking up an option a decision did not choose is a revision
-of that decision, naming the base that changed since.
+with the decisions lost with it, the approaches found beaten, and the revisions explored that broke. These bind nothing,
+and each is marked so. They are kept to be read: before proposing an approach, read whether a decision weighed it and on
+what it lost, or a revision like it broke. Taking up an approach a decision names but does not choose is a revision of
+that decision, naming the base that changed since.
 
 A fact holds of when it was found. A new decision is derived from the latest fact on its matter; a decision derived from
 an earlier one stands unless the later fact changes it.
@@ -50,9 +52,10 @@ found, naming the base where there is one, and does not settle it alone.
 
 A choice is real, wherever one is spoken of, only when it has options that trade off against one another: approaches
 none of which another beats on every count or by an overwhelming balance, so that each is better than each other in
-something and worse in something else. An approach another beats so is no option, and with one option left there is no
-choice. Whether a choice seems obvious, or fits an article or a fact, does not decide whether it is one; weighing the
-options against one another on the premises does. A decision names every other option of its choice.
+something and worse in something else. An approach another beats so, or one that breaks an article, is no option;
+serving an article less than another option does is a cost. With one option left there is no choice. Whether a choice
+seems obvious, or fits an article or a fact, does not decide whether it is one; weighing the options against one another
+on the premises does.
 
 ## 4. Words are evidence, not reasons
 
