@@ -1,99 +1,51 @@
 # Reasoning system
 
-A project's decisions kept as a tree, derived from its axioms and the facts it takes as given. The system does two
-things: it derives each decision, and it evolves the whole from one coherent state to the next, its information only
-growing.
+A project's decisions kept as records derived from its owner's axioms and the facts it takes as given. The system does
+two things: it derives each decision, and it evolves the records from one coherent state to the next, their information
+only growing.
 
 ## Derivation
 
-A decision answers one question. From its premises (articles of the project's constitution, facts, earlier decisions;
-at least one article or earlier decision among them) it weighs the approaches that answer the question by what each
-gives and what each costs, and takes one. Its content is the choice: that approach and not the others, each named. A
-recorded decision can be a premise of later ones. No decision contradicts another, an article, or a fact it rests on.
-
-Only a real choice is a decision. A choice is real when every approach in it has real advantages and real costs, so
-that taking one gives something up. An approach better on every count, or by an overwhelming balance, leaves no choice,
-and nothing is recorded. Whether a choice seems obvious, or fits an article or a fact, does not decide whether it is
-one; weighing each approach's advantages and costs on the premises does. The same standard holds wherever a choice is
-spoken of. So every decision names at least one approach not chosen, with what that approach does better and why
-that loses on the decision's premises, never the choice turned round; an approach with no real advantage is not named.
+A decision answers one question. It weighs the options that answer it, each with what it does better than each other,
+by the articles of the project's constitution and, where they pull apart, by the precedence the constitution sets; the
+weighing is a judgment, stated in its reasons. It takes one option and says why each other loses. Its premises are the
+articles, facts and earlier decisions it cites, an article or a decision among them. Only a real choice is a decision:
+options that trade off, each better than each other in something. No decision contradicts another, an article, or a
+fact it rests on.
 
 ## Evolution
 
-The records only grow. Nothing in them is deleted and nothing is lost: an overturned choice stays as an approach that
-lost, a mistaken fact beside its correction. Every step of their evolution brings information in, and they stay coherent
-as they grow. The decisions grow by additions and revisions, each put to the owner.
-
-- **Facts are only added.** A fact holds of when it was found: a later state of the world, such as a price that has
-  dropped since, is a new fact beside it, and a fact found mistaken stays as what was taken to be the case, its
-  correction a second fact. A new fact is recorded only when a decision rests on it: one an addition needs, or one that
-  changes a decision, which is then studied again and revised by a card. A new fact that does neither is not recorded.
-  A fact no current choice rests on stays, cited by the approach that lost on its successor.
-- **An addition** answers a question no decision answers. It takes the articles and decisions as they stand and brings
-  the facts its reasons need (what is the case, given inline in a decision's reasons, is a fact too). It changes no
-  article and no decision.
-- **A revision** overturns a decision, and is possible only when one of the decision's bases changed: a new fact (what
-  the decision was found to have missed, or the need a work brings, among them), an article, or a decision it rests on.
-  With none of them changed, no decision can be overturned. A revision names the base that changed; the choice it
-  replaces is kept as an approach not chosen, saying the base it lost on; every decision resting on the one overturned
-  loses that premise and is derived again, and may come out the same or change; one card covers the revision and every
-  decision it changes with it. Taking up an approach a decision rejected is a revision of that decision, and so is
-  dropping something the project does: the decision it stands under is revised to not doing it.
-- **What stays**: the approaches that lost, with the decisions made under them while they were chosen, and the
-  revisions explored that broke on a record they would have had to change, so that no path is explored again
-  unknowingly. Attempts made while coding are not paths and are not kept.
+The records only grow. Facts and articles are only added; a later state or a correction is a new fact beside the old,
+and an article the owner changes is a new one replacing the old. A decision changes only when one of its bases changes:
+an article replaced, a new fact, or a decision it rests on revised. A revision keeps the choice it replaces with the
+weighing it was chosen on and the base it lost on; the decisions resting on it are derived again; a decision whose
+question arose only under the option replaced is lost with it, and back with it if it returns; a revision explored that
+broke is kept with the record it broke on. Each addition and each revision goes to the owner as a card.
 
 ## The records
 
-- **The constitution**: the owner's axioms. Only the owner sets it. An article is never edited: one the owner changes
-  is a new article, the old one kept as replaced by it.
-- **Facts**: what is or was the case as of when it was found, about the world, the tools, the project as it runs, or the
-  owner, recorded only when a decision rests on them, and only ever added. Most stand inline among a decision's
-  reasons; one that carries much data, such as measurements, is kept apart in `facts/` so that the decisions stay
-  short. A lasting preference or habit of the owner is a fact; nobody's words are a reason. A fact is known or assumed:
-  an assumed fact takes part in deriving like any other, its correctness assumed rather than known.
-- **Decisions**: how the project does something, kept as derivations, each a real choice as above. A decision whose
-  premises are not known is not recorded until they are found, asked of the owner when need be.
-
-The records name nothing that exists only in one implementation: no paths, no names of files, modules, functions,
-types, tables or fields, no ids or numbers of steps or states; a step is named by what it does. No record only
-restates an interface or an implementation. A number the project sets, such as a wait or a limit, is configuration,
-unless the number itself was a real choice. The project's code, tests and configuration do not cite the records either;
-commit messages, pull requests and cards may.
-
-## Working with them
-
-An extension of the system, given in full in `rules/extension-work.md`. Work starts from the project's code and its
-records. The decisions answering the questions the work raises are read, each decision stating its question, with
-the approaches they rejected. Then:
-
-- Code and records found to disagree: the code is made to follow the records, unless the records are wrong, which is a
-  revision. Two decisions found to contradict each other: a revision.
-- Work with no real choice in it, against no decision: it is done, and the records stay as they are.
-- A real choice the work makes: an addition, with all its premises, the decisions as they stand taken as given.
-- Work a decision stands in the way of: a revision put to the owner, with at least two options, the work done under the
-  records as they are (it cannot be done, or only awkwardly) and the records changed (where, and how they stay
-  coherent).
-
-One work may bring both additions and revisions.
+`reasoning/` holds `constitution.md` (the owner's articles), `derivations/` (the decisions, a tree by concept) and
+`facts/` (facts carrying much data; most facts are declared inline in the decisions). The records name nothing that
+exists only in one implementation, and the project's code does not cite them.
 
 ## Contents
 
-- `rules/reading.md`: for every agent whose work rests on a project's records.
-- `rules/writing.md`: for agents that derive decisions and change the records; it also gives the layout of a
-  project's `reasoning/` directory and the format of each record.
-- `rules/dcr.md`: the design coherence review, which checks an addition or a revision.
-- `rules/extension-work.md`: an extension, keeping a project's work in line with its decisions.
+- `rules/reading.md`: for everyone working on a project.
+- `rules/writing.md`: for those who add to the records or revise them; it gives the format.
+- `rules/dcr.md`: the design coherence review of a change to the records.
+- `rules/extension-work.md`: an extension, the review of a work against the decisions once its code is written.
 - `rules/extension-cards.md`: an extension, putting an addition or a revision to the owner as a card.
-- `check.py`: the check of a project's records, with `test_check.py` its tests; Python 3 and its standard library only.
-- `review-base.sh`: picks the commit a CI job checks the records against.
-- `reasoning/`: this system's own records, to be rebuilt by these rules.
+- `rules/extension-challenge.md`: an extension, challenging the decisions a solution stands on.
+- `guides/building.md`: building a project's records from nothing, or rebuilding them; given to no agent.
+- `check.py`: the check of a project's records, with `test_check.py` its tests; Python 3 and its standard library.
+- `review-base.sh`: picks the revision a CI job checks the records against.
+- `reasoning/`: this system's own records, to be rebuilt in the current form.
 
 ## Using it in a project
 
-The project keeps its records in `reasoning/`, gives its agents the rules their roles need, and checks the records on
-every push and pull request with `check.py` taken at a fixed commit of this repository, in a directory `<system>`
-(a submodule, or a copy downloaded), with the full history (`fetch-depth: 0`):
+The project keeps its records in `reasoning/`, gives each agent the rule files its role needs, and checks the records
+on every push and pull request with `check.py` taken at a fixed commit of this repository, in a directory `<system>`,
+with the full history (`fetch-depth: 0`):
 
 ```sh
 base=$(sh <system>/review-base.sh "$GITHUB_EVENT_NAME" "$GITHUB_REF" "$PUSH_BEFORE")
