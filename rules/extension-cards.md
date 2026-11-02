@@ -8,11 +8,10 @@ A card stands in the design the work hands in, where the design reaches its ques
 the background, where the work stands and why this is asked; the text around it does not repeat it. It has:
 
 - its question, in plain words, each term of the project explained where it is first used;
-- for a revision, the base that changed;
+- for a revision, the base that changed and what else changes with it;
 - every option, each with what it does, what it gives and what it costs, and why it wins or loses on the premises; the
   one recommended;
-- its confidence from 1 to 5, why, and what would overturn it;
-- the records it adds or changes, the decisions a revision changes with it among them, saying what the card says.
+- its confidence from 1 to 5, why, and what would overturn it.
 
 ## 2. Ruling
 
